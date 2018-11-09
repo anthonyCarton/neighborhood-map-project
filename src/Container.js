@@ -1,4 +1,8 @@
-export class Container extends React.Component {
+import React, { Component } from 'react';
+import Map from './Map.js';
+
+
+class Container extends React.Component {
   render() {
 		const style = {
       width: '100vw',
@@ -11,7 +15,7 @@ export class Container extends React.Component {
     return (
 			<div style={style}>
 				<Map google={this.props.google}
-					/>
+				/>
 			</div>
 		)
 	}

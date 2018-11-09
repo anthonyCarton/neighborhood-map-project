@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Container from './Container.js';
+import locations from './data/locations.json';
 
 class App extends Component {
+	// important to keep state at this higher level
+	state = {
+		lat: 111,
+		lng: 222,
+		zoom: 14,
+		locations: locations
+	}
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Things are working here!
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+				<Container />
       </div>
     );
   }

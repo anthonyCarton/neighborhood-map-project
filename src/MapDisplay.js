@@ -109,7 +109,10 @@ class MapDisplay extends React.Component {
 					style={style}
 					initialCenter={center}
 					onClick={this.closeInfoWindow}
-				/>
+				>
+					<InfoWindow>
+					</InfoWindow>
+				</Map>
 			</div>
 		);
   }

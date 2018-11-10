@@ -58,4 +58,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 Reviewed setState docs, now better understand how an object can be passed in.
 Also didn't catch before that it's a best practice not to use the callback.
 
+### [React Animation](https://developers.google.com/maps/documentation/javascript/reference/marker#Animation)
+Referenced to find out, can only use DROP or BOUNCE
+
 ### [google-maps-react onReady](https://www.npmjs.com/package/google-maps-react#onready)

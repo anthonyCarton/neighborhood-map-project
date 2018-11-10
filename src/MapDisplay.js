@@ -20,7 +20,8 @@ class MapDisplay extends React.Component {
 
 	}
 	updateMarkers() {
-
+		// make sure locations are valid
+		if (!this.props.locations) {return};
 	}
 	mapReady(props, map) {
 		// works with google-maps-react's onReady event

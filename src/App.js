@@ -5,7 +5,7 @@ import locations from './data/locations.json';
 import MapDisplay from './MapDisplay'
 
 // TODOs: Phase 1 Get map on screen
-	// TODO: create hard coded list of locations
+	// Done: create hard coded list of locations
 	// TODO: Keep state and functions above the components,
 	// TODO: Create a MapDisplay component to display the map and a heading
 
@@ -23,8 +23,9 @@ const API_KEY = 'AIzaSyBlvE_2fUrpkkd2H0hMei-27nw_axyaVY0';
 class App extends Component {
 	// important to keep state at this higher level
 	state = {
-		lat: 37.774929,
-		lng: -122.419416,
+		// Mancos CO
+		lat: 37.344996,
+		lng: -108.289249,
 		zoom: 14,
 		locations: locations,
 		key: API_KEY

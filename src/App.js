@@ -4,17 +4,24 @@ import './App.css';
 import locations from './data/locations.json';
 import MapDisplay from './MapDisplay';
 
-// TODOs: Phase 1 Get map on screen
-	// DONE: create hard coded list of locations
-	// DONE: Keep state and functions above the components,
-	// DONE: Create a MapDisplay component to display the map and a heading
-	// DONE: Pass state props to MapDisplay
-	// TODO: Display Map on screen
-
 // TODOs: Phase 2 display map markers identifying at least 5 locations
-	// TODO: Create Phase 2 TODOs
+	// TODO: Add marker props to MapDisplay state (markers, markerProps, activeMarker, activeMarkerProps, showing in window)
+	// TODO: Create updateMarkers() method and call when mapReady
+		// TODO: make sure locations are valid
+		// TODO: Clear any existing markers
+		// TODO: Create an empty markerProps array
+		// TODO: Iterate through markers, for every location, get data, index and array
+		// TODO: push marker data into markerProps array
+	// TODO: Create onMarkerClick()
+		// TODO: Close any open info window
+		// TODO: Set state to marker info window show
+	// TODO: create closeInfoWindow
+		// TODO: Disable any active info window
+		// TODO: set state so no active windows
+	// TODO: Add InfoWindow object
 
 // TODOs: Phase 3 Implement a list view of the set of locations you have defined
+	// TODO: Add phase 3 TODOs
 // TODOs: Phase 4 Provide a filter option
 // TODOs: Phase 5 Add third-party API for map marker information
 // TODOs: Phase 6 Ensure responsive design

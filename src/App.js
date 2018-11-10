@@ -15,9 +15,9 @@ import MapDisplay from './MapDisplay';
 	// DONE: Create onMarkerClick()
 		// DONE: Close any open info window
 		// DONE: Set state to marker info window show
-	// TODO: create closeInfoWindow
-		// TODO: Disable any active info window
-		// TODO: set state so no active windows
+	// DONE: create closeInfoWindow
+		// DONE: Disable any active info window
+		// DONE: set state so no active windows
 	// TODO: Add InfoWindow object
 
 // TODOs: Phase 3 Implement a list view of the set of locations you have defined

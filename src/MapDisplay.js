@@ -19,10 +19,15 @@ class MapDisplay extends React.Component {
 	componentDidMount() {
 
 	}
+	updateMarkers() {
+
+	}
 	mapReady(props, map) {
 		// works with google-maps-react's onReady event
 		const {google} = props;
   	const service = new google.maps.places.PlacesService(map);
+		// Call updateMarkers with marker locations
+		this.updateMarkers(this.props.locations);
 	}
   render() {
 		const style = {

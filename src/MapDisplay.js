@@ -21,12 +21,8 @@ class MapDisplay extends React.Component {
 	}
 
 	mapReady = (props, map) => {
-		// works with google-maps-react's onReady event
-		/* const {google} = props;
-  	const service = new google.maps.places.PlacesService(map);*/
-
+		// Pass map into state, call updateMarkers with locations
 		this.setState({map});
-		// Call updateMarkers with marker locations
 		this.updateMarkers(this.props.locations);
 	}
 

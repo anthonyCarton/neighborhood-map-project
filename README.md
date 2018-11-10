@@ -62,3 +62,4 @@ Also didn't catch before that it's a best practice not to use the callback.
 Referenced to find out, can only use DROP or BOUNCE
 
 ### [google-maps-react onReady](https://www.npmjs.com/package/google-maps-react#onready)
+### [google-maps-react Lazy Loading](https://www.npmjs.com/package/google-maps-react#sample-usage-with-lazy-loading-google-api)

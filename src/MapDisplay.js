@@ -15,8 +15,6 @@ class MapDisplay extends React.Component {
 		// works with google-maps-react's onReady event
 		const {google} = props;
   	const service = new google.maps.places.PlacesService(map);
-		// Doug Brown uses:
-		this.setState({map});
 	}
   render() {
 		const style = {

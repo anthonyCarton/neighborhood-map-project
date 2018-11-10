@@ -9,9 +9,9 @@ import MapDisplay from './MapDisplay';
 	// DONE: Create updateMarkers() method and call when mapReady
 		// DONE: make sure locations are valid
 		// DONE: Clear any existing markers
-		// TODO: Create an empty markerProps array
-		// TODO: Iterate through markers, for every location, get data, index and array
-		// TODO: push marker data into markerProps array
+		// DONE: Create an empty markerProps array
+		// DONE: Iterate through markers, for every location, get data, index and array
+		// DONE: push marker data into markerProps array
 	// TODO: Create onMarkerClick()
 		// TODO: Close any open info window
 		// TODO: Set state to marker info window show

@@ -8,7 +8,7 @@ import MapDisplay from './MapDisplay';
 	// DONE: create hard coded list of locations
 	// DONE: Keep state and functions above the components,
 	// DONE: Create a MapDisplay component to display the map and a heading
-	// TODO: Pass state props to MapDisplay
+	// DONE: Pass state props to MapDisplay
 	// TODO: Display Map on screen
 
 // TODOs: Phase 2 display map markers identifying at least 5 locations

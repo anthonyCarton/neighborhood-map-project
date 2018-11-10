@@ -19,9 +19,6 @@ import MapDisplay from './MapDisplay';
 // TODOs: Phase 5 Add third-party API for map marker information
 // TODOs: Phase 6 Ensure responsive design
 
-
-const API_KEY = 'AIzaSyBlvE_2fUrpkkd2H0hMei-27nw_axyaVY0';
-
 class App extends Component {
 	// important to keep state at this higher level
 	state = {
@@ -34,12 +31,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+				<h1>Restaurants in Mancos Colorado</h1>
+
 				<MapDisplay
 					lat = {this.state.lat}
 					lng = {this.state.lng}
 					zoom = {this.state.zoom}
 					locations = {this.state.locations}
-					key = {API_KEY}
 					/>
       </div>
     );

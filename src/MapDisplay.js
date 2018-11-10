@@ -28,8 +28,6 @@ class MapDisplay extends React.Component {
 		}
     return (
 			<div>
-				<h1>Restaurants in Mancos Colorado</h1>
-				<p>The map will be here</p>
 				<Map
 					role="application"
 					aria-label="map"
@@ -39,7 +37,6 @@ class MapDisplay extends React.Component {
 					style={style}
 					// initalCenter: Takes an object containing latitude and longitude coordinates. Sets the maps center upon loading.
 					initialCenter={center}
-
 				/>
 			</div>
 		);

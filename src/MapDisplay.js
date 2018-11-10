@@ -29,12 +29,15 @@ class MapDisplay extends React.Component {
 	closeInfoWindow = () => {
 		// Disable any active markers
 		// See if there is an active marker && turn off any Animation
-
+		this.state.activeMarker && this.state.activeMarker.setAnimation(null);
 		// Then set showInfoWindow, activeMarker, and activeMarkerProps to null
-
-		
-		this.setState({activeMarker: null});
-		this.props.google.maps.InfoWindow.close();
+		// Using optional pass obj into first arg
+		// https://reactjs.org/docs/react-component.html#setstate
+		this.setState({
+			showInfoWindow: null,
+			activeMarker: null,
+			activeMarkerProps: null
+		})
 	}
 
 	onMarkerClick = (props, marker, event) => {

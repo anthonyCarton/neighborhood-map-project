@@ -67,7 +67,7 @@ class MapDisplay extends React.Component {
 						map: this.state.map,
 						animation
 					});
-					marker.addListener('click', function() {
+					marker.addListener('click', () => {
 						this.onMarkerClick(theseProps, marker, null);
 					});
 					return marker;

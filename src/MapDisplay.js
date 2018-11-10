@@ -104,11 +104,11 @@ class MapDisplay extends React.Component {
 					role="application"
 					aria-label="map"
 					onReady={this.mapReady}
-					// Looks like I was missing this: https://www.npmjs.com/package/google-maps-react#sample-usage-with-lazy-loading-google-api
 					google={this.props.google}
+					zoom={this.props.zoom}
 					style={style}
-					// initalCenter: Takes an object containing latitude and longitude coordinates. Sets the maps center upon loading.
 					initialCenter={center}
+					onClick={this.closeInfoWindow}
 				/>
 			</div>
 		);

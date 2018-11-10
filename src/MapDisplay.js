@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import {Map, GoogleApiWrapper} from 'google-maps-react';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import {Map, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
+/*import { BrowserRouter, Route, Link } from 'react-router-dom'*/
 
 const API_KEY = 'AIzaSyBlvE_2fUrpkkd2H0hMei-27nw_axyaVY0';
 
 class MapDisplay extends React.Component {
 	state = {
-		map:null,
+		map: null,
 		// List of all markers, and props
 		markers: [],
 		markerProps: [],
@@ -16,24 +16,60 @@ class MapDisplay extends React.Component {
 		// Is info window supposed to show
 		showInfoWindow: false
 	};
-	componentDidMount() {
 
+	componentDidMount = () => {
 	}
-	updateMarkers = function(locations) {
-			// make sure locations are valid
-			if (!locations) return;
 
-			// Clear map of current markers if any
-			this.state.markers.forEach(marker == setMap(null));
-		}
-	}
-	mapReady(props, map) {
+	mapReady = (props, map) => {
 		// works with google-maps-react's onReady event
-		const {google} = props;
-  	const service = new google.maps.places.PlacesService(map);
+		/* const {google} = props;
+  	const service = new google.maps.places.PlacesService(map);*/
+
+		this.setState({map});
 		// Call updateMarkers with marker locations
 		this.updateMarkers(this.props.locations);
 	}
+
+	closeInfoWindow = () => {}
+
+	onMarkerClick = () => {}
+
+	updateMarkers = (locations) => {
+			// make sure locations are valid
+			if (!locations)
+				return;
+
+			// Clear map of current markers if any
+			/*this.setState((this.state.map), null);*/
+			this.state.markers.forEach(marker => marker.setMap(null));
+
+			// Create an empty markerProps array
+			let markerProps = [];
+			// Map over locations, get data, index and array
+			let markers = locations.map((location, index) => {
+					let theseProps = {
+						key: index,
+						index,
+						name: location.name,
+						position: location.pos,
+						url: location.url
+					}
+					markerProps.push(theseProps);
+
+					let animation = this.props.google.maps.Animation.DROP;
+					let marker = new this.props.google.maps.Marker({
+						position: location.pos,
+						map: this.state.map,
+						animation
+					});
+					marker.addListener('click', function() {
+						this.onMarkerClick(theseProps, marker, null);
+					});
+					return marker;
+				}
+			)
+		}
+
   render() {
 		const style = {
 			// Prefer VW and VH to %

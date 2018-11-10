@@ -110,8 +110,16 @@ class MapDisplay extends React.Component {
 					initialCenter={center}
 					onClick={this.closeInfoWindow}
 				>
-					<InfoWindow>
-					</InfoWindow>
+				{/* https://www.npmjs.com/package/google-maps-react#events-4 */}
+				<InfoWindow
+					marker={this.state.activeMarker}
+					visible={this.state.showInfoWindow}
+					onClose={this.closeInfoWindow}
+					>
+				    <div>
+				      <h3>{this.state.activeMarkerProps && this.state.activeMarkerProps.name}</h3>
+				    </div>
+				</InfoWindow>
 				</Map>
 			</div>
 		);

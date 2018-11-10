@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 import './App.css';
 import locations from './data/locations.json';
 import MapDisplay from './MapDisplay'
 
+// TODOs: Phase 1
+	// TODO: create hard coded list of locations
+	// TODO: Keep state and functions above the components,
+	// TODO: Create a MapDisplay component to display the map and a heading
+
+// TODOs: Phase 2
+	// TODO: Create Phase 2 TODOs
+
+// TODOs: Phase 3
+// TODOs: Phase 4
+// TODOs: Phase 5
+// TODOs: Phase 6
 
 const API_KEY = 'AIzaSyBlvE_2fUrpkkd2H0hMei-27nw_axyaVY0';
 

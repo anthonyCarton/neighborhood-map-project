@@ -32,7 +32,13 @@ class MapDisplay extends React.Component {
 
 	closeInfoWindow = () => {}
 
-	onMarkerClick = () => {}
+	onMarkerClick = () => {
+		// Using close method
+		this.props.google.maps.InfoWindow.close();
+
+		// Set state to marker info window show
+		this.setState((this.state.showInfoWindow), true);
+	}
 
 	updateMarkers = (locations) => {
 			// make sure locations are valid
@@ -52,6 +58,7 @@ class MapDisplay extends React.Component {
 						position: location.pos,
 						url: location.url
 					}
+					// push marker data into markerProps array
 					markerProps.push(theseProps);
 
 					let animation = this.props.google.maps.Animation.DROP;

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {Map, GoogleApiWrapper} from 'google-maps-react';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-// TODO: Add state with map: null
 // TODO: Add empty compDidMount()
 // TODO: Add mapReady(props, map)
 // TODO: Add style and center variables

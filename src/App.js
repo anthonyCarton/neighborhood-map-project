@@ -5,7 +5,7 @@ import locations from './data/locations.json';
 import MapDisplay from './MapDisplay';
 
 // TODOs: Phase 2 display map markers identifying at least 5 locations
-	// TODO: Add marker props to MapDisplay state (markers, markerProps, activeMarker, activeMarkerProps, showing in window)
+	// DONE: Add marker props to MapDisplay state (markers, markerProps, activeMarker, activeMarkerProps, showing in window)
 	// TODO: Create updateMarkers() method and call when mapReady
 		// TODO: make sure locations are valid
 		// TODO: Clear any existing markers

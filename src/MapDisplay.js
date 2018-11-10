@@ -28,6 +28,11 @@ class MapDisplay extends React.Component {
 
 	closeInfoWindow = () => {
 		// Disable any active markers
+		// See if there is an active marker && turn off any Animation
+
+		// Then set showInfoWindow, activeMarker, and activeMarkerProps to null
+
+		
 		this.setState({activeMarker: null});
 		this.props.google.maps.InfoWindow.close();
 	}

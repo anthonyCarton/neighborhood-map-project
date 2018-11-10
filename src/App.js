@@ -32,7 +32,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-				<h1>Mexican Restaurants in Mancos Colorado</h1>
+				<h1>Restaurants in Mancos Colorado</h1>
 				<MapDisplay />
       </div>
     );

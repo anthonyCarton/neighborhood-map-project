@@ -51,3 +51,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### [How to Write a Google Maps React Component](https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/#the-map-container-component)
 
 ### [ScriptCache + React + Google Api](https://gist.github.com/auser/1d55aa3897f15d17caf21dc39b85b663)
+
+### [React componentDidMount()](https://reactjs.org/docs/react-component.html#componentdidmount)

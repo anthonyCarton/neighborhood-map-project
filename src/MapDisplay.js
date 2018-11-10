@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {Map, GoogleApiWrapper} from 'google-maps-react';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-// TODO: Add empty compDidMount()
 // TODO: Add mapReady(props, map)
 // TODO: Add style and center variables
 // TODO: Add ARIA role and label
@@ -11,6 +10,9 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 class MapDisplay extends React.Component {
 	state = {
 		map:null
+	}
+	componentDidMount() {
+		
 	}
   render() {
     return (

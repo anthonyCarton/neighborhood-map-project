@@ -15,6 +15,8 @@ class MapDisplay extends React.Component {
 		// works with google-maps-react's onReady event
 		const {google} = props;
   	const service = new google.maps.places.PlacesService(map);
+		// Doug Brown uses:
+		this.setState({map});
 	}
   render() {
 		const style = {
@@ -34,6 +36,8 @@ class MapDisplay extends React.Component {
 					role="application"
 					aria-label="map"
 					onReady={this.mapReady}
+					// Looks like I was missing this: https://www.npmjs.com/package/google-maps-react#sample-usage-with-lazy-loading-google-api
+					google={this.props.google}
 					style={style}
 					// initalCenter: Takes an object containing latitude and longitude coordinates. Sets the maps center upon loading.
 					initialCenter={center}
@@ -45,6 +49,4 @@ class MapDisplay extends React.Component {
 }
 
 // Automatically Lazy-loading Google API
-export default GoogleApiWrapper({
-  apiKey: API_KEY
-})(MapDisplay)
+export default GoogleApiWrapper({ apiKey: API_KEY })(MapDisplay)

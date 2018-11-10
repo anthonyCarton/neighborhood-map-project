@@ -10,6 +10,9 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 // TODO: Use GoogleApiWrapper to load the API, pass in MapDisplay when promise is fulfilled
 
 class MapDisplay extends React.Component {
+	state = {
+		map:null
+	}
   render() {
     return (
 			<div>

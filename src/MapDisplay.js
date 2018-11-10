@@ -19,9 +19,13 @@ class MapDisplay extends React.Component {
 	componentDidMount() {
 
 	}
-	updateMarkers() {
-		// make sure locations are valid
-		if (!this.props.locations) {return};
+	updateMarkers = function(locations) {
+			// make sure locations are valid
+			if (!locations) return;
+
+			// Clear map of current markers if any
+			this.state.markers.forEach(marker == setMap(null));
+		}
 	}
 	mapReady(props, map) {
 		// works with google-maps-react's onReady event

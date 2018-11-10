@@ -32,12 +32,16 @@ class MapDisplay extends React.Component {
 
 	closeInfoWindow = () => {}
 
-	onMarkerClick = () => {
-		// Using close method
-		this.props.google.maps.InfoWindow.close();
+	onMarkerClick = (props, marker, event) => {
+		/*this.props.google.maps.InfoWindow.close();*/
+		this.closeInfoWindow();
 
 		// Set state to marker info window show
-		this.setState((this.state.showInfoWindow), true);
+		this.setState({
+			showInfoWindow: true,
+			activeMarker: marker,
+			activeMarkerProps: props
+		})
 	}
 
 	updateMarkers = (locations) => {

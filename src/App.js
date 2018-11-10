@@ -12,9 +12,9 @@ import MapDisplay from './MapDisplay';
 		// DONE: Create an empty markerProps array
 		// DONE: Iterate through markers, for every location, get data, index and array
 		// DONE: push marker data into markerProps array
-	// TODO: Create onMarkerClick()
-		// TODO: Close any open info window
-		// TODO: Set state to marker info window show
+	// DONE: Create onMarkerClick()
+		// DONE: Close any open info window
+		// DONE: Set state to marker info window show
 	// TODO: create closeInfoWindow
 		// TODO: Disable any active info window
 		// TODO: set state so no active windows

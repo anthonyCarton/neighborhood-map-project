@@ -6,7 +6,15 @@ const API_KEY = 'AIzaSyBlvE_2fUrpkkd2H0hMei-27nw_axyaVY0';
 
 class MapDisplay extends React.Component {
 	state = {
-		map:null
+		map:null,
+		// List of all markers, and props
+		markers: [],
+		markerProps: [],
+		// Which marker is active, and it's props
+		activeMarker: null,
+		activeMarkerProps: null,
+		// Is info window supposed to show
+		showInfoWindow: false
 	};
 	componentDidMount() {
 

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {Map, GoogleApiWrapper} from 'google-maps-react';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
+const API_KEY = 'AIzaSyBlvE_2fUrpkkd2H0hMei-27nw_axyaVY0';
+
 class MapDisplay extends React.Component {
 	state = {
 		map:null
@@ -44,5 +46,5 @@ class MapDisplay extends React.Component {
 
 // Automatically Lazy-loading Google API
 export default GoogleApiWrapper({
-  apiKey: this.props.key
+  apiKey: API_KEY
 })(MapDisplay)

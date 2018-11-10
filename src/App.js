@@ -4,10 +4,14 @@ import './App.css';
 import locations from './data/locations.json';
 import MapDisplay from './MapDisplay';
 
-// TODOs: Phase 3 Implement a list view of the set of locations you have defined
-	// TODO: Add phase 3 TODOs
-// TODOs: Phase 4 Provide a filter option
-// TODOs: Phase 5 Add third-party API for map marker information
+// TODOs: Phase 3 Add third-party API for map marker information
+	// TODO: Set up 3rd party API
+	// TODO: Add getBusinessInfo function
+	// TODO: Update onMarkerClick to include 3rd party information
+	// TODO: Update render() to show the 3rd party API information
+
+// TODOs: Phase 4 Implement a list view of the set of locations you have defined
+// TODOs: Phase 5 Provide a filter option
 // TODOs: Phase 6 Ensure responsive design
 
 class App extends Component {

@@ -3,6 +3,7 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 /*import { BrowserRouter, Route, Link } from 'react-router-dom'*/
 
 const API_KEY = 'AIzaSyBlvE_2fUrpkkd2H0hMei-27nw_axyaVY0';
+const CO_SOCRATA_TOKEN = 'gNqVzSHJ7pWovzVu8pRHdiMHe';
 
 class MapDisplay extends React.Component {
 	state = {
@@ -24,6 +25,8 @@ class MapDisplay extends React.Component {
 		// Pass map into state, call updateMarkers with locations
 		this.setState({map});
 		this.updateMarkers(this.props.locations);
+		// Call for CO Liquor License Info as soon at the map is ready instead of when clicking on markers
+		this.getLicenseInfo();
 	}
 
 	closeInfoWindow = () => {
@@ -40,6 +43,35 @@ class MapDisplay extends React.Component {
 		})
 	}
 
+	getLicenseInfo = () => {
+		// Fetch the info from CO
+		// https://developers.google.com/web/updates/2015/03/introduction-to-fetch
+		// https://data.colorado.gov/Business/Liquor-Licenses-in-Colorado/ier5-5ms2
+		// https://dev.socrata.com/foundry/data.colorado.gov/6a7f-q6ys
+		const CITY = 'Mancos';
+
+		fetch(`https://data.colorado.gov/resource/6a7f-q6ys.json?city=${CITY}&%24%24app_token=${CO_SOCRATA_TOKEN}`)
+			.then(
+				function(response) {
+					if (response.status !== 200) {
+						console.log('Looks like there was a problem. Status Code: ' + response.status);
+						return;
+					}
+					// Examine the text in the response
+					response.json().then(function(data) {
+						console.log(data);
+					});
+				}
+			)
+			.catch(function(error) {
+			console.log('Fetch Error :-S', error);
+		})
+	}
+
+	getBusinessInfo = () => {
+		// Match the info to restaurant
+	}
+
 	onMarkerClick = (props, marker, event) => {
 		this.closeInfoWindow();
 		// Set state to marker info window show
@@ -48,6 +80,9 @@ class MapDisplay extends React.Component {
 			activeMarker: marker,
 			activeMarkerProps: props
 		})
+
+		// Call for CO Liquor License Info
+		this.getLicenseInfo();
 	}
 
 	updateMarkers = (locations) => {

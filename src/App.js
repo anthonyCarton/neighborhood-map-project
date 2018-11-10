@@ -7,7 +7,8 @@ import MapDisplay from './MapDisplay'
 // TODOs: Phase 1 Get map on screen
 	// DONE: create hard coded list of locations
 	// DONE: Keep state and functions above the components,
-	// TODO: Create a MapDisplay component to display the map and a heading
+	// DONE: Create a MapDisplay component to display the map and a heading
+	// TODO: Display Map on screen
 
 // TODOs: Phase 2 display map markers identifying at least 5 locations
 	// TODO: Create Phase 2 TODOs
@@ -33,7 +34,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-				<h1>Restaurants in Mancos Colorado</h1>
 				<MapDisplay />
       </div>
     );

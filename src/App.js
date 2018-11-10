@@ -5,8 +5,8 @@ import locations from './data/locations.json';
 import MapDisplay from './MapDisplay'
 
 // TODOs: Phase 1 Get map on screen
-	// Done: create hard coded list of locations
-	// TODO: Keep state and functions above the components,
+	// DONE: create hard coded list of locations
+	// DONE: Keep state and functions above the components,
 	// TODO: Create a MapDisplay component to display the map and a heading
 
 // TODOs: Phase 2 display map markers identifying at least 5 locations

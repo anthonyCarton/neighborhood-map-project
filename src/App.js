@@ -4,18 +4,19 @@ import './App.css';
 import locations from './data/locations.json';
 import MapDisplay from './MapDisplay'
 
-// TODOs: Phase 1
+// TODOs: Phase 1 Get map on screen
 	// TODO: create hard coded list of locations
 	// TODO: Keep state and functions above the components,
 	// TODO: Create a MapDisplay component to display the map and a heading
 
-// TODOs: Phase 2
+// TODOs: Phase 2 display map markers identifying at least 5 locations
 	// TODO: Create Phase 2 TODOs
 
-// TODOs: Phase 3
-// TODOs: Phase 4
-// TODOs: Phase 5
-// TODOs: Phase 6
+// TODOs: Phase 3 Implement a list view of the set of locations you have defined
+// TODOs: Phase 4 Provide a filter option
+// TODOs: Phase 5 Add third-party API for map marker information
+// TODOs: Phase 6 Ensure responsive design
+
 
 const API_KEY = 'AIzaSyBlvE_2fUrpkkd2H0hMei-27nw_axyaVY0';
 

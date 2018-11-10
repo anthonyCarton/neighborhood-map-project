@@ -36,12 +36,10 @@ class MapDisplay extends React.Component {
 
 	updateMarkers = (locations) => {
 			// make sure locations are valid
-			if (!locations)
-				return;
+			if (!locations) return;
 
 			// Clear map of current markers if any
-			/*this.setState((this.state.map), null);*/
-			this.state.markers.forEach(marker => marker.setMap(null));
+			this.setState((this.state.map), null);
 
 			// Create an empty markerProps array
 			let markerProps = [];
@@ -74,7 +72,7 @@ class MapDisplay extends React.Component {
 		const style = {
 			// Prefer VW and VH to %
 		  width: '100vw',
-		  height: '100vh'
+		  height: '90vh'
 		}
 		const center = {
 			lat: this.props.lat,

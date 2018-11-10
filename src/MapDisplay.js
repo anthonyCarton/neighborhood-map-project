@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import {Map, GoogleApiWrapper} from 'google-maps-react';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-// TODO: Use GoogleApiWrapper to load the API, pass in MapDisplay when promise is fulfilled
-
 class MapDisplay extends React.Component {
 	state = {
 		map:null
@@ -44,4 +42,7 @@ class MapDisplay extends React.Component {
   }
 }
 
-export default MapDisplay
+// Automatically Lazy-loading Google API
+export default GoogleApiWrapper({
+  apiKey: this.props.key
+})(MapDisplay)

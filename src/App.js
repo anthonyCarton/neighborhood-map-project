@@ -29,8 +29,8 @@ class App extends Component {
 		lat: 37.344996,
 		lng: -108.289249,
 		zoom: 14,
-		locations: locations,
-	}
+		locations: locations
+		}
   render() {
     return (
       <div className="App">

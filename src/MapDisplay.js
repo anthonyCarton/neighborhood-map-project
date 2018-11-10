@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Map, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 /*import { BrowserRouter, Route, Link } from 'react-router-dom'*/
 
 const API_KEY = 'AIzaSyBlvE_2fUrpkkd2H0hMei-27nw_axyaVY0';
@@ -42,7 +42,6 @@ class MapDisplay extends React.Component {
 
 	onMarkerClick = (props, marker, event) => {
 		this.closeInfoWindow();
-
 		// Set state to marker info window show
 		this.setState({
 			showInfoWindow: true,
@@ -118,6 +117,7 @@ class MapDisplay extends React.Component {
 					>
 				    <div>
 				      <h3>{this.state.activeMarkerProps && this.state.activeMarkerProps.name}</h3>
+							{/* Most places in town down have a website so I'm leaving off the URL*/}
 				    </div>
 				</InfoWindow>
 				</Map>

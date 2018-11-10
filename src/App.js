@@ -32,7 +32,7 @@ class App extends Component {
 		// Mancos CO
 		lat: 37.344996,
 		lng: -108.289249,
-		zoom: 14,
+		zoom: 16.5,
 		locations: locations
 		}
   render() {

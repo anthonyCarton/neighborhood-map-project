@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Map, GoogleApiWrapper} from 'google-maps-react';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 class MapDisplay extends React.Component {

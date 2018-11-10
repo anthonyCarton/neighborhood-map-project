@@ -26,7 +26,10 @@ class MapDisplay extends React.Component {
 		this.updateMarkers(this.props.locations);
 	}
 
-	closeInfoWindow = () => {}
+	closeInfoWindow = () => {
+		// Disable any active markers
+
+	}
 
 	onMarkerClick = (props, marker, event) => {
 		/*this.props.google.maps.InfoWindow.close();*/
@@ -61,6 +64,8 @@ class MapDisplay extends React.Component {
 					// push marker data into markerProps array
 					markerProps.push(theseProps);
 
+					// Animation can either BOUNCE or DROP
+					// https://developers.google.com/maps/documentation/javascript/reference/marker#Animation
 					let animation = this.props.google.maps.Animation.DROP;
 					let marker = new this.props.google.maps.Marker({
 						position: location.pos,

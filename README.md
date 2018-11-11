@@ -43,6 +43,11 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+## APIs
+
+### [Google Maps API](https://developers.google.com/maps/documentation/)
+### [Colorado Information Marketplace: Liquor Licenses in Colorado](https://data.colorado.gov/Business/Liquor-Licenses-in-Colorado/ier5-5ms2)
+### [Socrata SODA Consumer API: Liquor Licenses in Colorado](https://dev.socrata.com/foundry/data.colorado.gov/6a7f-q6ys)
 
 ## Resources
 

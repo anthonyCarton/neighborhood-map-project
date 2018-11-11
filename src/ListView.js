@@ -25,10 +25,10 @@ class ListView extends Component {
 					value={this.state.query}
 					/>
 				<ul className="button-list">
-						{this.props.locations && this.props.locations.map((location) => {
+						{this.props.locations && this.props.locations.map((location, index) => {
 							return (
-								<li key={location.name}>
-									<button onClick={event => this.props.infoWindowFromList(location.name)}>{location.name}</button>
+								<li key={location.name}> {/* key and infoWindowFromList(arg) were location.name */}
+									<button onClick={event => this.props.infoWindowFromList(index)}>{location.name}</button>
 								</li>
 							)
 						})}

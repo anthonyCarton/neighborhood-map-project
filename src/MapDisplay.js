@@ -18,26 +18,26 @@ class MapDisplay extends Component {
 		showInfoWindow: false
 	};
 
-	componentWillReceiveProps = (props) => {
+	componentWillReceiveProps = (receivedProps) => {
 		// If number of locations changes, update the markers
-		if (this.state.markers.length !== props.locations.length) {
+		if (this.state.markers.length !== receivedProps.locations.length) {
 			this.closeInfoWindow();
 			this.updateMarkers(this.props.locations);
 			return;
 		}
 		// If selected item not the active marker, close infoWindow
-		if (!this.props.selected
+		if (!receivedProps.selectedIndex
 				|| (this.state.activeMarker
-				&& (this.state.markers[this.props.selected] !== this.state.activeMarker))) {
+				&& (this.state.markers[receivedProps.selectedIndex] !== this.state.activeMarker))) {
 					this.closeInfoWindow();
 				}
 		// If no selected marker, return
-    if (this.props.selected === null || typeof(this.props.selected) === "undefined") {
+    if (receivedProps.selectedIndex === null || typeof(receivedProps.selectedIndex) === "undefined") {
         return;
     };
 
 		// act as though marker is clicked
-		this.onMarkerClick(this.state.markerProps[this.props.selected], this.state.markers[this.props.selected])
+		this.onMarkerClick(this.state.markerProps[receivedProps.selectedIndex], this.state.markers[receivedProps.selectedIndex])
 	}
 
 	mapReady = (props, map) => {
@@ -90,7 +90,7 @@ class MapDisplay extends Component {
 			.then(fetchResponse => fetchResponse.json())
 			.then(result => {
 
-				// get just this Business
+				// get this Business
 				let restaurant = this.getBusinessInfo(props, result);
 				// (moved this into if (restaurant) so that it only runs if there was a match)
 				// let exp_date = new Date(restaurant[0].expiration).toDateString();
@@ -145,7 +145,6 @@ class MapDisplay extends Component {
 				activeMarker: marker,
 				activeMarkerProps: props
 			})
-
 	}
 
 
@@ -162,7 +161,7 @@ class MapDisplay extends Component {
 		let markers = locations.map((location, index) => {
 			let theseProps = {
 				key: location.name,
-				index,
+				index: index,
 				name: location.name,
 				position: location.pos,
 				street: location.street,

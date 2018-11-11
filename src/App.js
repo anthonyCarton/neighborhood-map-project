@@ -23,7 +23,8 @@ class App extends Component {
 		lng: -108.289249,
 		zoom: 16.5,
 		locations: locations,
-		filtered: null
+		filtered: null,
+		selectedIndex: null
 		}
 	componentDidMount = () => {
 		this.setState({
@@ -35,7 +36,7 @@ class App extends Component {
 	updateQuery = (query) => {
 		this.setState({
 			...this.state,
-			selected: null,
+			selectedIndex: null, // no key is currently selected
 			filtered: this.filterLocations(this.state.locations, query)
 		});
 	}
@@ -44,9 +45,9 @@ class App extends Component {
 		return locations.filter(location => location.name.toLowerCase().includes(query.toLowerCase()));
 	}
 
-	infoWindowFromList = (key) => {
-		console.log('button key is: ', key);
-		this.setState({selected: key})
+	infoWindowFromList = (index) => {
+		console.log('button index is: ', index);
+		this.setState({selectedIndex: index});
 	}
 
   render() {
@@ -72,7 +73,8 @@ class App extends Component {
 							lng = {this.state.lng}
 							zoom = {this.state.zoom}
 							locations = {this.state.filtered}
-							selected = {this.state.selected}
+							selectedIndex = {this.state.selectedIndex}
+
 						/>
 					</section>
 				</main>

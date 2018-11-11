@@ -16,13 +16,13 @@
 	}
 
 	header {
-		
+
 	}
 
 
 	.list-view {
 		width:calc(25% - 40px);
-		background-color:grey;
+		background-color:black;
 		padding:20px;
 	}
 	.list-view ul {
@@ -34,10 +34,16 @@
 	}
 	.list-view button {
 		width:100%;
+		background-color: black;
+		border: none;
+		color:white;
 		font-size: 1rem;
 		text-align: left;
 		padding:10px 10px 20px;
 		margin-bottom:10px;
+	}
+	.list-view button:hover {
+		background-color: darkslategrey;
 	}
 	.map {
 		width:500px;

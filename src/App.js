@@ -5,8 +5,8 @@ import locations from './data/locations.json';
 import MapDisplay from './MapDisplay';
 
 // TODOs: Phase 3 Add third-party API for map marker information
-	// TODO: Set up 3rd party API
-	// TODO: Add getBusinessInfo function
+	// DONE: Set up 3rd party API
+	// DONE: Add fetchLicenseInfo function
 	// TODO: Update onMarkerClick to include 3rd party information
 	// TODO: Update render() to show the 3rd party API information
 

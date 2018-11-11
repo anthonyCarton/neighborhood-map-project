@@ -4,13 +4,9 @@ import './App.css';
 import locations from './data/locations.json';
 import MapDisplay from './MapDisplay';
 
-// TODOs: Phase 3 Add third-party API for map marker information
-	// DONE: Set up 3rd party API
-	// DONE: Add fetchLicenseInfo function
-	// TODO: Update onMarkerClick to include 3rd party information
-	// TODO: Update render() to show the 3rd party API information
-
 // TODOs: Phase 4 Implement a list view of the set of locations you have defined
+	// TODO: Identify P4 TODOs
+	
 // TODOs: Phase 5 Provide a filter option
 // TODOs: Phase 6 Ensure responsive design
 

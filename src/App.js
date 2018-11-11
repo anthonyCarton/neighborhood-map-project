@@ -4,16 +4,15 @@ import locations from './data/locations.json';
 import MapDisplay from './MapDisplay';
 import ListView from './ListView';
 
-// TODOs Phase 5b connect options to infoWindow
-	// DONE: Add method to handle list item clicks in App.js
-	// DONE: Add this as property on ListView
-	// DONE: Add onClick to buttons
-	// DONE!: Show infoWindow when list item is selected
+// TODOs: Phase 6 Error Handling
+	// TODO: Add LoadingContainer to MapDisplay per
+		// https://www.npmjs.com/package/google-maps-react#automatically-lazy-loading-google-api
+	// TODO: Create a Loading container
+	// TODO: Populate with an error loading message
+	// Last TODO: switch SW.unregister() to SW.register on index.js
 
-// TODOs: Phase 6 Ensure responsive design
-	// TODO: Make list view into HamburgerMenu
+// TODOs: Phase 7 Ensure responsive design
 
-// TODOs: Phase 7 Error Handling
 
 class App extends Component {
 	// important to keep state at this higher level

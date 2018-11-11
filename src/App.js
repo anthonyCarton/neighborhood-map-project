@@ -7,8 +7,8 @@ import ListView from './ListView';
 // TODOs Phase 5b connect options to infoWindow
 	// DONE: Add method to handle list item clicks in App.js
 	// DONE: Add this as property on ListView
-	// TODO: Add onClick to buttons
-	// TODO: Show infoWindow when list item is selected
+	// DONE: Add onClick to buttons
+	// DONE!: Show infoWindow when list item is selected
 
 // TODOs: Phase 6 Ensure responsive design
 	// TODO: Make list view into HamburgerMenu

@@ -7,7 +7,7 @@ import ListView from './ListView';
 
 // TODOs: Phase 5 Provide a filter option
 	// TODO: Identify TODOs
-	
+
 // TODOs: Phase 6 Ensure responsive design
 
 class App extends Component {
@@ -40,6 +40,8 @@ class App extends Component {
 				</main>
 
 				<footer>
+					<p><a href="https://developers.google.com/maps/documentation/">Google Map API</a></p>
+					<p>Liquor license status provided by <a href="https://data.colorado.gov/Business/Liquor-Licenses-in-Colorado/ier5-5ms2">State of Colorado</a> and <a href="https://dev.socrata.com/foundry/data.colorado.gov/6a7f-q6ys">Socrata</a></p>
 				</footer>
       </div>
     );

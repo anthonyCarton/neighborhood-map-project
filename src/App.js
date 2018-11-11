@@ -4,12 +4,6 @@ import locations from './data/locations.json';
 import MapDisplay from './MapDisplay';
 import ListView from './ListView';
 
-// TODOs: Phase 6 Error Handling
-	// DONE: Add LoadingContainer to MapDisplay per
-		// https://www.npmjs.com/package/google-maps-react#automatically-lazy-loading-google-api
-	// DONE: Create a Loading container
-	// DONE: Populate with an error loading message
-
 // TODOs: Phase 7 Ensure responsive design
 
 // Last TODO: switch SW.unregister() to SW.register on index.js

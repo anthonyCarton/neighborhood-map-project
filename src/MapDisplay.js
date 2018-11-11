@@ -35,6 +35,9 @@ class MapDisplay extends Component {
     if (this.props.selected === null || typeof(this.props.selected) === "undefined") {
         return;
     };
+
+		// act as though marker is clicked
+		this.onMarkerClick(this.state.markerProps[this.props.selected], this.state.markers[this.props.selected])
 	}
 
 	mapReady = (props, map) => {
@@ -58,8 +61,18 @@ class MapDisplay extends Component {
 	}
 
 	getBusinessInfo = (props, data) => {
+		console.log(`getBusInfo props:`);
+		console.log(props);
 		// Match the info to restaurant by filtering by address
-		return data.filter(item => item.street_address.toLowerCase().includes(props.street.toLowerCase()) || props.street.toLowerCase().includes(item.street_address.toLowerCase()))
+		let matchList =  data.filter(item => item.street_address.toLowerCase().includes(props.street.toLowerCase()) || props.street.toLowerCase().includes(item.street_address.toLowerCase()));
+
+		if (!matchList[0]) {
+			console.log('no match');
+			// return matchList[0]; (May not be necessary unless 2nd then needs an item)
+		} else {
+			console.log('restaurant match is: ' + matchList[0].doing_business_as);
+			return matchList[0];
+		}
 	}
 
 	onMarkerClick = (props, marker, event) => {
@@ -76,41 +89,55 @@ class MapDisplay extends Component {
 		fetch(`https://data.colorado.gov/resource/6a7f-q6ys.json?city=Mancos&%24%24app_token=${CO_SOCRATA_TOKEN}`)
 			.then(fetchResponse => fetchResponse.json())
 			.then(result => {
-					// get just this Business
-					let restaurant = this.getBusinessInfo(props, result);
-					console.log(restaurant[0]);
-					let exp_date = new Date(restaurant[0].expiration).toDateString();
 
-					// was there a match?
-					if (restaurant[0]) {
-						activeMarkerProps = {
-							...props,
-							lic_num: restaurant[0].license_number,
-							lic_exp: exp_date,
-							lic_type: restaurant[0].license_type
-						}
-					} else {
-						activeMarkerProps = {
-							...props,
-						}
+				// get just this Business
+				let restaurant = this.getBusinessInfo(props, result);
+				// (moved this into if (restaurant) so that it only runs if there was a match)
+				// let exp_date = new Date(restaurant[0].expiration).toDateString();
+
+				// was there a match? Array Version
+				/*if (restaurant[0]) {
+					activeMarkerProps = {
+						...props,
+						lic_num: restaurant[0].license_number,
+						lic_exp: exp_date,
+						lic_type: restaurant[0].license_type
 					}
+				} else {
+					activeMarkerProps = {
+						...props,
+					}
+				}*/
+				// was there a match? bestMatch Version
+				if (restaurant) {
+					let exp_date = new Date(restaurant.expiration).toDateString();
 
-					this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps});
-
-					console.log(activeMarkerProps);
-
-					if (activeMarkerProps.lic_num &&
-							activeMarkerProps.lic_exp &&
-							activeMarkerProps.lic_type ) {
-						console.log(activeMarkerProps);
-					} else {
-						console.log('no liquor license');
+					activeMarkerProps = {
+						...props,
+						lic_num: restaurant.license_number,
+						lic_exp: exp_date,
+						lic_type: restaurant.license_type
+					}
+				} else {
+					activeMarkerProps = {
+						...props,
 					}
 				}
-			)
-			.catch(function(error) {
-				console.log('Fetch Error :-S', error);
-			});
+
+				this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps});
+				//console.log(activeMarkerProps);
+
+				/*if (activeMarkerProps.lic_num &&
+						activeMarkerProps.lic_exp &&
+						activeMarkerProps.lic_type ) {
+				} else {
+					console.log('no liquor license');
+				}*/
+			}
+		)
+		.catch(function(error) {
+			console.log('Fetch Error :', error);
+		});
 
 			// Set state to marker info window show
 			this.setState({
@@ -123,7 +150,6 @@ class MapDisplay extends Component {
 
 
 	updateMarkers = (locations) => {
-		console.log(this.state.markers);
 		// make sure locations are valid
 		if (!locations) return;
 
@@ -135,7 +161,7 @@ class MapDisplay extends Component {
 		// Map over locations, get data, index and array
 		let markers = locations.map((location, index) => {
 			let theseProps = {
-				key: index,
+				key: location.name,
 				index,
 				name: location.name,
 				position: location.pos,
@@ -199,7 +225,7 @@ class MapDisplay extends Component {
 										<p>Type: {theseProps && theseProps.lic_type}</p>
 									</div>
 								) : (
-									<p>This establishment does not have a liquor license.</p>
+									<p>This establishment does not <br />have a liquor license.</p>
 								)}
 					  </div>
 					</InfoWindow>

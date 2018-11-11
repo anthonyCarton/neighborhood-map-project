@@ -5,6 +5,9 @@ import MapDisplay from './MapDisplay';
 import ListView from './ListView';
 
 // TODOs Phase 5b connect options to infoWindow
+	// DONE: Add method to handle list item clicks in App.js
+	// DONE: Add this as property on ListView
+	// TODO: Add onClick to buttons
 	// TODO: Show infoWindow when list item is selected
 
 // TODOs: Phase 6 Ensure responsive design
@@ -21,7 +24,7 @@ class App extends Component {
 		zoom: 16.5,
 		locations: locations,
 		filtered: null
-	}
+		}
 	componentDidMount = () => {
 		this.setState({
 			...this.state,
@@ -41,6 +44,11 @@ class App extends Component {
 		return locations.filter(location => location.name.toLowerCase().includes(query.toLowerCase()));
 	}
 
+	infoWindowFromList = (key) => {
+		console.log('button key is: ', key);
+		this.setState({selected: key})
+	}
+
   render() {
     return (
       <div className="container">
@@ -50,6 +58,7 @@ class App extends Component {
 						<ListView
 							locations = {this.state.filtered}
 							filterLocations = {this.updateQuery}
+							infoWindowFromList = {this.infoWindowFromList}
 						/>
 					</nav>
 					<section id="data-credit">

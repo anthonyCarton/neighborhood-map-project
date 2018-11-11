@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 class ListView extends Component {
 	state = {
 		query: ""
-	}
+		}
 
 	updateQuery = (updatedQuery) => {
 		this.setState({ query: updatedQuery });
@@ -28,7 +28,7 @@ class ListView extends Component {
 						{this.props.locations && this.props.locations.map((location) => {
 							return (
 								<li key={location.name}>
-									<button>{location.name}</button>
+									<button onClick={event => this.props.infoWindowFromList(location.name)}>{location.name}</button>
 								</li>
 							)
 						})}

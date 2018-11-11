@@ -23,7 +23,7 @@ class ListView extends React.Component {
 					value={this.state.query}
 					></input>
 				<ul>
-						{this.props.locations && this.props.locations.map((location, index) => {
+						{this.props.locations && this.props.locations.map((location) => {
 							return (
 								<li key={location.name}>
 									<button>{location.name}</button>

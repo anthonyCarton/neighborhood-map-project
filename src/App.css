@@ -18,6 +18,7 @@ header {
 	color: white;
 	width:calc(25% - 30px);
 	padding:15px;
+	height:100%;
 }
 header h1 {
 	background-color: black;
@@ -62,9 +63,12 @@ header h1 {
 	background-color: darkslategrey;
 }
 #data-credit {
+	position: fixed;
+	bottom:0px;
+	width:calc(25% - 30px);
+
 	background-color: black;
-	height:calc(10vh - 20px);
-	min-height:60px;
+	height:60px;
 	padding:10px 0;
 }
 #data-credit a {

@@ -53,6 +53,7 @@ class App extends Component {
 				<main>
 					<ListView
 						locations = {this.state.filtered}
+						filterLocations = {this.updateQuery}
 					/>
 
 					<MapDisplay

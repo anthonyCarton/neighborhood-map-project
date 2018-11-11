@@ -3,7 +3,14 @@ import React, { Component } from 'react'
 //https://reactjs.org/docs/lists-and-keys.html#embedding-map-in-jsx
 
 class ListView extends React.Component {
-	state = {}
+	state = {
+		query: ""
+	}
+
+	updateQuery = (query) => {
+		this.setState({query: query})
+		console.log(query);
+	}
 
   render() {
     return (
@@ -12,6 +19,7 @@ class ListView extends React.Component {
 					type="search"
 					id="locationFilter"
 					aria-label="Filter locations"
+					onChange={event => this.updateQuery(event.target.value)}
 					></input>
 				<ul>
 					{this.props.locations.map((location) => {

@@ -8,6 +8,11 @@ class ListView extends React.Component {
   render() {
     return (
 			<div className="list-view">
+				<input
+					type="search"
+					id="locationFilter"
+					aria-label="Filter locations"
+					></input>
 				<ul>
 					{this.props.locations.map((location) => {
 						return (

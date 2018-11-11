@@ -26,6 +26,10 @@
 		padding:20px;
 		width:calc(25% - 40px);
 	}
+	.list-view input {
+		margin-bottom:20px;
+		width:100%;
+	}
 	.list-view ul {
 		list-style-type: none;
 		padding:0;

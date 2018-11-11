@@ -6,7 +6,7 @@ import MapDisplay from './MapDisplay';
 import ListView from './ListView';
 
 // TODOs: Phase 5 Provide a filter option
-	// TODO: Add input element for filtering
+	// DONE: Add input element for filtering
 	// TODO: Filter elements in list
 	// TODO: Show only filtered elements on map
 	// TODO: Show infoWindow when list item is selected

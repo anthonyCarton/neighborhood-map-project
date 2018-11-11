@@ -24,7 +24,7 @@ class ListView extends Component {
 					onKeyUp={event => this.updateQuery(event.target.value)}
 					value={this.state.query}
 					/>
-				<ul>
+				<ul className="button-list">
 						{this.props.locations && this.props.locations.map((location) => {
 							return (
 								<li key={location.name}>

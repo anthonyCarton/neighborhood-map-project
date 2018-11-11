@@ -48,15 +48,16 @@ class App extends Component {
     return (
       <div className="container">
 				<header>
-					<h1>Restaurants in Mancos Colorado</h1>
+					<h1>Restaurant Liquor License Status in Mancos Colorado</h1>
 					<nav id="filter-options">
 						<ListView
 							locations = {this.state.filtered}
 							filterLocations = {this.updateQuery}
 						/>
 					</nav>
-					<p><a href="https://developers.google.com/maps/documentation/">Google Map API</a></p>
-					<p>Liquor license status provided by <a href="https://data.colorado.gov/Business/Liquor-Licenses-in-Colorado/ier5-5ms2">State of Colorado</a> and <a href="https://dev.socrata.com/foundry/data.colorado.gov/6a7f-q6ys">Socrata</a></p>
+					<section id="data-credit">
+						<p>Liquor license status provided by <a href="https://data.colorado.gov/Business/Liquor-Licenses-in-Colorado/ier5-5ms2">State of Colorado</a> and <a href="https://dev.socrata.com/foundry/data.colorado.gov/6a7f-q6ys">Socrata</a></p>
+					</section>
 				</header>
 				<main id="main-content">
 					<section id="map-container">

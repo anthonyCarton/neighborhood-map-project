@@ -4,10 +4,7 @@ import locations from './data/locations.json';
 import MapDisplay from './MapDisplay';
 import ListView from './ListView';
 
-// TODOs: Phase 5 Provide a filter option
-	// DONE: Add input element for filtering
-	// DONE: Filter elements in list
-	// TODO: Show only filtered elements on map
+// TODOs Phase 5b connect options to infoWindow
 	// TODO: Show infoWindow when list item is selected
 
 // TODOs: Phase 6 Ensure responsive design

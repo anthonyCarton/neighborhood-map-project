@@ -9,7 +9,7 @@ class ListView extends React.Component {
 
 	updateQuery = (query) => {
 		this.setState({query: query})
-		console.log(query);
+		this.props.filterLocations(query);
 	}
 
   render() {
@@ -20,15 +20,16 @@ class ListView extends React.Component {
 					id="locationFilter"
 					aria-label="Filter locations"
 					onChange={event => this.updateQuery(event.target.value.toLowerCase())}
+					value={this.state.query}
 					></input>
 				<ul>
-					{this.props.locations.map((location) => {
-						return (
-						<li key={location.name}>
-							<button>{location.name}</button>
-						</li>
-					)
-					})}
+						{this.props.locations && this.props.locations.map((location, index) => {
+							return (
+								<li key={location.name}>
+									<button>{location.name}</button>
+								</li>
+							)
+						})}
 				</ul>
 			</div>
 		);

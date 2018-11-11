@@ -18,9 +18,6 @@ class MapDisplay extends React.Component {
 		showInfoWindow: false
 	};
 
-	componentDidMount = () => {
-	}
-
 	mapReady = (props, map) => {
 		// Pass map into state, call updateMarkers with locations
 		this.setState({map});
@@ -104,6 +101,7 @@ class MapDisplay extends React.Component {
 			})
 
 	}
+
 
 	updateMarkers = (locations) => {
 			// make sure locations are valid

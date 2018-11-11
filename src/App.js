@@ -23,8 +23,26 @@ class App extends Component {
 		lat: 37.344996,
 		lng: -108.289249,
 		zoom: 16.5,
-		locations: locations
-		}
+		locations: locations,
+		filtered: null
+	}
+	componentDidMount = () => {
+		this.setState({
+			...this.state,
+			filtered: this.filterLocations(this.state.locations, "")
+		});
+	}
+	updateQuery = (query) => {
+		this.setState({
+			...this.state,
+			selected: null,
+			filtered: this.filterLocations(this.state.locations, query)
+		})
+	}
+	filterLocations = (locations, query) => {
+		return locations.filter((location) => location.name.toLowerCase().includes(query))
+	}
+
   render() {
     return (
       <div className="container">
@@ -34,14 +52,14 @@ class App extends Component {
 
 				<main>
 					<ListView
-						locations = {this.state.locations}
+						locations = {this.state.filtered}
 					/>
 
 					<MapDisplay
 						lat = {this.state.lat}
 						lng = {this.state.lng}
 						zoom = {this.state.zoom}
-						locations = {this.state.locations}
+						locations = {this.state.filtered}
 						/>
 				</main>
 

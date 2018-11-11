@@ -31,15 +31,17 @@ class App extends Component {
 			filtered: this.filterLocations(this.state.locations, "")
 		});
 	}
+
 	updateQuery = (query) => {
 		this.setState({
 			...this.state,
 			selected: null,
 			filtered: this.filterLocations(this.state.locations, query)
-		})
+		});
 	}
+
 	filterLocations = (locations, query) => {
-		return locations.filter((location) => location.name.toLowerCase().includes(query))
+		return locations.filter(location => location.name.toLowerCase().includes(query.toLowerCase()));
 	}
 
   render() {
@@ -60,7 +62,8 @@ class App extends Component {
 						lng = {this.state.lng}
 						zoom = {this.state.zoom}
 						locations = {this.state.filtered}
-						/>
+						selected = {this.state.selected}
+					/>
 				</main>
 
 				<footer>

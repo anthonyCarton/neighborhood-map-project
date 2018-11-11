@@ -7,9 +7,9 @@ class ListView extends Component {
 		query: ""
 	}
 
-	updateQuery = (query) => {
-		this.setState({query: query})
-		this.props.filterLocations(query);
+	updateQuery = (updatedQuery) => {
+		this.setState({ query: updatedQuery });
+		this.props.filterLocations(updatedQuery);
 	}
 
   render() {
@@ -19,8 +19,11 @@ class ListView extends Component {
 					type="search"
 					id="locationFilter"
 					aria-label="Filter locations"
-					onChange={event => this.updateQuery(event.target.value.toLowerCase())}
-					></input>
+					name="filter"
+					onChange={event => this.updateQuery(event.target.value)}
+					onKeyUp={event => this.updateQuery(event.target.value)}
+					value={this.state.query}
+					/>
 				<ul>
 						{this.props.locations && this.props.locations.map((location) => {
 							return (

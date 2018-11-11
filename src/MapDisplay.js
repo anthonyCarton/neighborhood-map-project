@@ -19,8 +19,6 @@ class MapDisplay extends Component {
 	};
 
 	componentWillReceiveProps = (props) => {
-		this.setState({firstDrop: false}); // this one
-
 		// If number of locations changes, update the markers
 		if (this.state.markers.length !== props.locations.length) {
 			this.closeInfoWindow();
@@ -125,44 +123,44 @@ class MapDisplay extends Component {
 
 
 	updateMarkers = (locations) => {
-			// make sure locations are valid
-			if (!locations) return;
+		console.log(this.state.markers);
+		// make sure locations are valid
+		if (!locations) return;
 
-			// Clear map of current markers if any
-			// this.setState((this.state.map), null);
-			// this.state.markers.forEach(marker => marker.setMap(null)); // this one
+		// Clear map of current markers if any
+		this.state.markers.forEach(marker => marker.setMap(null));
 
-
-			// Create an empty markerProps array
-			let markerProps = [];
-			// Map over locations, get data, index and array
-			locations.map((location, index) => {
-				let theseProps = {
-					key: index,
-					index,
-					name: location.name,
-					position: location.pos,
-					street: location.street,
-					url: location.url
-				}
-				// push marker data into markerProps array
-				markerProps.push(theseProps);
-
-				// Animation can either BOUNCE or DROP
-				// https://developers.google.com/maps/documentation/javascript/reference/marker#Animation
-				let animation = this.props.google.maps.Animation.DROP;
-
-				let marker = new this.props.google.maps.Marker({
-					position: location.pos,
-					map: this.state.map,
-					animation
-				});
-				marker.addListener('click', () => {
-					this.onMarkerClick(theseProps, marker, null);
-				});
-				return marker;
+		// Create an empty markerProps array
+		let markerProps = [];
+		// Map over locations, get data, index and array
+		let markers = locations.map((location, index) => {
+			let theseProps = {
+				key: index,
+				index,
+				name: location.name,
+				position: location.pos,
+				street: location.street,
+				url: location.url
 			}
-		)
+			// push marker data into markerProps array
+			markerProps.push(theseProps);
+
+			// Animation can either BOUNCE or DROP
+			// https://developers.google.com/maps/documentation/javascript/reference/marker#Animation
+			let animation = this.props.google.maps.Animation.DROP;
+
+			let marker = new this.props.google.maps.Marker({
+				position: location.pos,
+				map: this.state.map,
+				animation
+			});
+			marker.addListener('click', () => {
+				this.onMarkerClick(theseProps, marker, null);
+			});
+			return marker;
+		})
+		console.log(markers);
+		this.setState({markers, markerProps}); // It was this!
 	}
 
   render() {
@@ -176,7 +174,6 @@ class MapDisplay extends Component {
 		}
 		let theseProps = this.state.activeMarkerProps;
     return (
-			<div className="map">
 				<Map
 					role="application"
 					aria-label="map"
@@ -206,7 +203,6 @@ class MapDisplay extends Component {
 					  </div>
 					</InfoWindow>
 				</Map>
-			</div>
 		);
   }
 }

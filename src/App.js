@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
 import './App.css';
 import locations from './data/locations.json';
 import MapDisplay from './MapDisplay';

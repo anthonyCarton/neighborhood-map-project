@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 //https://reactjs.org/docs/lists-and-keys.html#embedding-map-in-jsx
 
-class ListView extends React.Component {
+class ListView extends Component {
 	state = {
 		query: ""
 	}

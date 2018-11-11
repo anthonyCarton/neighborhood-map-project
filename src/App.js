@@ -7,7 +7,7 @@ import ListView from './ListView';
 
 // TODOs: Phase 5 Provide a filter option
 	// DONE: Add input element for filtering
-	// TODO: Filter elements in list
+	// DONE: Filter elements in list
 	// TODO: Show only filtered elements on map
 	// TODO: Show infoWindow when list item is selected
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Map, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
-/*import { BrowserRouter, Route, Link } from 'react-router-dom'*/
+import LoadingContainer from './LoadingContainer';
 
 const API_KEY = 'AIzaSyBlvE_2fUrpkkd2H0hMei-27nw_axyaVY0';
 const CO_SOCRATA_TOKEN = 'gNqVzSHJ7pWovzVu8pRHdiMHe';
@@ -234,4 +234,10 @@ class MapDisplay extends Component {
 }
 
 // Automatically Lazy-loading Google API
-export default GoogleApiWrapper({ apiKey: API_KEY })(MapDisplay)
+// export default GoogleApiWrapper({ apiKey: API_KEY })(MapDisplay)
+
+// Automatically Lazy-loading Google API with custom loading container
+export default GoogleApiWrapper({
+  apiKey: API_KEY,
+  LoadingContainer: LoadingContainer
+})(MapDisplay)

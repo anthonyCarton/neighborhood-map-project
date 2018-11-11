@@ -5,25 +5,26 @@
 }
 .container {
 }
-	header, footer {
-		height: 100px;
+	header {
 		background-color:black;
 		color: white;
+		padding:20px 0;
 	}
+	header h1 {
+		font-size:3rem;
+		text-align: center;
+	}
+
 	main {
 		display: flex;
 		flex-wrap: wrap;
 	}
 
-	header {
-
-	}
-
 
 	.list-view {
-		width:calc(25% - 40px);
 		background-color:black;
 		padding:20px;
+		width:calc(25% - 40px);
 	}
 	.list-view ul {
 		list-style-type: none;
@@ -33,23 +34,30 @@
 
 	}
 	.list-view button {
-		width:100%;
 		background-color: black;
 		border: none;
 		color:white;
 		font-size: 1rem;
-		text-align: left;
-		padding:10px 10px 20px;
 		margin-bottom:10px;
+		padding:10px 10px 20px;
+		text-align: left;
+		width:100%;
 	}
 	.list-view button:hover {
 		background-color: darkslategrey;
 	}
 	.map {
-		width:500px;
 		height:500px;
+		width:500px;
 	}
 
+
+	footer {
+		background-color:black;
+		color: white;
+		height: 100px;
+		padding:20px 0;
+	}
 
 
 

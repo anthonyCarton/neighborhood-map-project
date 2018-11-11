@@ -34,7 +34,7 @@
 	},
 	{
 		"name": "Chavolo's Mexican Restaurant",
-		"street": "121 Railroad Ave",
+		"street": "121 East Railroad Ave",
 		"city": "Mancos",
 		"zip": "81328",
 		"url": "No URL available",
@@ -63,17 +63,6 @@
 		"pos": {
 			"lat": 37.346899,
 			"lng": -108.286462
-		}
-	},
-	{
-		"name": "Zuma Natural Foods",
-		"street": "299 N Main St",
-		"city": "Mancos",
-		"zip": "81328",
-		"url": "No URL available",
-		"pos": {
-			"lat": 37.347149,
-			"lng": -108.288872
 		}
 	},
 	{

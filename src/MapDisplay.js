@@ -25,8 +25,6 @@ class MapDisplay extends React.Component {
 		// Pass map into state, call updateMarkers with locations
 		this.setState({map});
 		this.updateMarkers(this.props.locations);
-		// Call for CO Liquor License Info as soon at the map is ready instead of when clicking on markers
-		this.getLicenseInfo();
 	}
 
 	closeInfoWindow = () => {
@@ -43,33 +41,9 @@ class MapDisplay extends React.Component {
 		})
 	}
 
-	getLicenseInfo = () => {
-		// Fetch the info from CO
-		// https://developers.google.com/web/updates/2015/03/introduction-to-fetch
-		// https://data.colorado.gov/Business/Liquor-Licenses-in-Colorado/ier5-5ms2
-		// https://dev.socrata.com/foundry/data.colorado.gov/6a7f-q6ys
-		const CITY = 'Mancos';
-
-		fetch(`https://data.colorado.gov/resource/6a7f-q6ys.json?city=${CITY}&%24%24app_token=${CO_SOCRATA_TOKEN}`)
-			.then(
-				function(response) {
-					if (response.status !== 200) {
-						console.log('Looks like there was a problem. Status Code: ' + response.status);
-						return;
-					}
-					// Examine the text in the response
-					response.json().then(function(data) {
-						console.log(data);
-					});
-				}
-			)
-			.catch(function(error) {
-			console.log('Fetch Error :-S', error);
-		})
-	}
-
-	getBusinessInfo = () => {
-		// Match the info to restaurant
+	getBusinessInfo = (props, data) => {
+		// Match the info to restaurant by filtering by address
+		return data.filter(item => item.street_address.toLowerCase().includes(props.street.toLowerCase()) || props.street.toLowerCase().includes(item.street_address.toLowerCase()))
 	}
 
 	onMarkerClick = (props, marker, event) => {
@@ -82,7 +56,29 @@ class MapDisplay extends React.Component {
 		})
 
 		// Call for CO Liquor License Info
-		this.getLicenseInfo();
+		// Fetch the info from CO
+		// https://developers.google.com/web/updates/2015/03/introduction-to-fetch
+		// https://data.colorado.gov/Business/Liquor-Licenses-in-Colorado/ier5-5ms2
+		// https://dev.socrata.com/foundry/data.colorado.gov/6a7f-q6ys
+		// Create props for the active marker
+		let activeMarkerProps;
+
+		fetch(`https://data.colorado.gov/resource/6a7f-q6ys.json?city=Mancos&%24%24app_token=${CO_SOCRATA_TOKEN}`)
+			.then(fetchResponse => fetchResponse.json())
+			.then(result => {
+					// get just this Business
+					let restaurant = this.getBusinessInfo(props, result);
+					console.log('made it')
+					console.log(restaurant);
+					activeMarkerProps = {
+						...props,
+						license: restaurant[0]
+					}
+				}
+			)
+			.catch(function(error) {
+				console.log('Fetch Error :-S', error);
+			})
 	}
 
 	updateMarkers = (locations) => {
@@ -101,6 +97,7 @@ class MapDisplay extends React.Component {
 						index,
 						name: location.name,
 						position: location.pos,
+						street: location.street,
 						url: location.url
 					}
 					// push marker data into markerProps array

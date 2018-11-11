@@ -48,12 +48,6 @@ class MapDisplay extends React.Component {
 
 	onMarkerClick = (props, marker, event) => {
 		this.closeInfoWindow();
-		// Set state to marker info window show
-		this.setState({
-			showInfoWindow: true,
-			activeMarker: marker,
-			activeMarkerProps: props
-		})
 
 		// Call for CO Liquor License Info
 		// Fetch the info from CO
@@ -68,17 +62,47 @@ class MapDisplay extends React.Component {
 			.then(result => {
 					// get just this Business
 					let restaurant = this.getBusinessInfo(props, result);
-					console.log('made it')
-					console.log(restaurant);
-					activeMarkerProps = {
-						...props,
-						license: restaurant[0]
+					console.log(restaurant[0]);
+					let exp_date = new Date(restaurant[0].expiration).toDateString();
+
+					// was there a match?
+					if (restaurant[0]) {
+						activeMarkerProps = {
+							...props,
+							lic_num: restaurant[0].license_number,
+							lic_exp: exp_date,
+							lic_type: restaurant[0].license_type
+						}
+					} else {
+						activeMarkerProps = {
+							...props,
+						}
+					}
+
+					this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps});
+
+					console.log(activeMarkerProps);
+
+					if (activeMarkerProps.lic_num &&
+							activeMarkerProps.lic_exp &&
+							activeMarkerProps.lic_type ) {
+						console.log(activeMarkerProps);
+					} else {
+						console.log('no liquor license');
 					}
 				}
 			)
 			.catch(function(error) {
 				console.log('Fetch Error :-S', error);
+			});
+
+			// Set state to marker info window show
+			this.setState({
+				showInfoWindow: true,
+				activeMarker: marker,
+				activeMarkerProps: props
 			})
+
 	}
 
 	updateMarkers = (locations) => {
@@ -129,6 +153,7 @@ class MapDisplay extends React.Component {
 			lat: this.props.lat,
 			lng: this.props.lng
 		}
+		let theseProps = this.state.activeMarkerProps;
     return (
 			<div>
 				<Map
@@ -139,19 +164,26 @@ class MapDisplay extends React.Component {
 					zoom={this.props.zoom}
 					style={style}
 					initialCenter={center}
-					onClick={this.closeInfoWindow}
-				>
-				{/* https://www.npmjs.com/package/google-maps-react#events-4 */}
-				<InfoWindow
-					marker={this.state.activeMarker}
-					visible={this.state.showInfoWindow}
-					onClose={this.closeInfoWindow}
-					>
-				    <div>
-				      <h3>{this.state.activeMarkerProps && this.state.activeMarkerProps.name}</h3>
-							{/* Most places in town down have a website so I'm leaving off the URL*/}
-				    </div>
-				</InfoWindow>
+					onClick={this.closeInfoWindow}>
+					{/* https://www.npmjs.com/package/google-maps-react#events-4 */}
+					<InfoWindow
+						marker={this.state.activeMarker}
+						visible={this.state.showInfoWindow}
+						onClose={this.closeInfoWindow}>
+					  <div>
+							<h3>{theseProps && theseProps.name}</h3>
+							{theseProps && theseProps.lic_num && theseProps.lic_exp
+                ? (
+									<div>
+										<p>Lic. # {theseProps && theseProps.lic_num}</p>
+										<p>Expiration: {theseProps && theseProps.lic_exp}</p>
+										<p>Type: {theseProps && theseProps.lic_type}</p>
+									</div>
+								) : (
+									<p>This establishment does not have a liquor license.</p>
+								)}
+					  </div>
+					</InfoWindow>
 				</Map>
 			</div>
 		);

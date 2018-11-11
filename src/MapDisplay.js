@@ -146,8 +146,7 @@ class MapDisplay extends React.Component {
   render() {
 		const style = {
 			// Prefer VW and VH to %
-		  width: '100vw',
-		  height: '90vh'
+		  width: '75%',
 		}
 		const center = {
 			lat: this.props.lat,
@@ -155,7 +154,7 @@ class MapDisplay extends React.Component {
 		}
 		let theseProps = this.state.activeMarkerProps;
     return (
-			<div>
+			<div className="map">
 				<Map
 					role="application"
 					aria-label="map"

@@ -167,6 +167,7 @@ class MapDisplay extends Component {
 		const style = {
 			// Prefer VW and VH to %
 		  width: '75%',
+			height: '100%'
 		}
 		const center = {
 			lat: this.props.lat,

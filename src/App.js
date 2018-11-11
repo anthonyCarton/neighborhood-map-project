@@ -49,27 +49,26 @@ class App extends Component {
       <div className="container">
 				<header>
 					<h1>Restaurants in Mancos Colorado</h1>
-				</header>
-
-				<main>
-					<ListView
-						locations = {this.state.filtered}
-						filterLocations = {this.updateQuery}
-					/>
-
-					<MapDisplay
-						lat = {this.state.lat}
-						lng = {this.state.lng}
-						zoom = {this.state.zoom}
-						locations = {this.state.filtered}
-						selected = {this.state.selected}
-					/>
-				</main>
-
-				<footer>
+					<nav id="filter-options">
+						<ListView
+							locations = {this.state.filtered}
+							filterLocations = {this.updateQuery}
+						/>
+					</nav>
 					<p><a href="https://developers.google.com/maps/documentation/">Google Map API</a></p>
 					<p>Liquor license status provided by <a href="https://data.colorado.gov/Business/Liquor-Licenses-in-Colorado/ier5-5ms2">State of Colorado</a> and <a href="https://dev.socrata.com/foundry/data.colorado.gov/6a7f-q6ys">Socrata</a></p>
-				</footer>
+				</header>
+				<main id="main-content">
+					<section id="map-container">
+						<MapDisplay
+							lat = {this.state.lat}
+							lng = {this.state.lng}
+							zoom = {this.state.zoom}
+							locations = {this.state.filtered}
+							selected = {this.state.selected}
+						/>
+					</section>
+				</main>
       </div>
     );
   }

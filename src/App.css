@@ -4,66 +4,64 @@
 	padding:0;
 }
 .container {
+	display: flex;
+	flex-wrap: wrap;
+	position:relative;
+	overflow: hidden;
+	width:100vw;
+	height:100vh;
 }
-	header {
-		background-color:black;
-		color: white;
-		padding:20px 0;
-	}
-	header h1 {
-		font-size:3rem;
-		text-align: center;
-	}
 
-	main {
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-
-	.list-view {
-		background-color:black;
-		padding:20px;
-		width:calc(25% - 40px);
-	}
-	.list-view input {
-		margin-bottom:20px;
-		width:100%;
-	}
-	.list-view ul {
-		list-style-type: none;
-		padding:0;
-	}
-	.list-view li {
-
-	}
-	.list-view button {
-		background-color: black;
-		border: none;
-		color:white;
-		font-size: 1rem;
-		margin-bottom:10px;
-		padding:10px 10px 20px;
-		text-align: left;
-		width:100%;
-	}
-	.list-view button:hover {
-		background-color: darkslategrey;
-	}
-	.map {
-		height:500px;
-		width:500px;
-	}
+/* -----  Header Styles ----- */
+header {
+	background-color:black;
+	color: white;
+	padding:10px 0;
+	width:25%;
+	height:100vh;
+}
+header h1 {
+	font-size:1.5rem;
+	text-align: center;
+}
+#filter-options {
+	width:100%;
+}
+.list-view {
+	background-color:black;
+	padding:20px;
+}
+.list-view input {
+	margin-bottom:20px;
+	width:100%;
+}
+.list-view ul {
+	list-style-type: none;
+	padding:0;
+}
+.list-view li {
+}
+.list-view button {
+	background-color: black;
+	border: none;
+	color:white;
+	font-size: 1rem;
+	margin-bottom:10px;
+	padding:10px 10px 20px;
+	text-align: left;
+	width:100%;
+}
+.list-view button:hover {
+	background-color: darkslategrey;
+}
 
 
-	footer {
-		background-color:black;
-		color: white;
-		height: 100px;
-		padding:20px 0;
+
+/* -----  Main Styles ----- */
+main {
 	}
-
-
+#map-container div {
+}
 
 	/* ====================== breakpoints ====================== */
 	@media all and (min-width: 960px) {

@@ -1,32 +1,59 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.container {
+	display: flex;
+	flex-wrap: wrap;
 }
+	.container h1 {
+		width:100%;
+		height:10vh;
+	}
+	.list-view {
+		width:25%;
+		height:90vh;
+		background-color:grey;
+	}
+	.map {
+		width:75%;
+		height:90vh;
+	}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+	/* ====================== breakpoints ====================== */
+	@media all and (min-width: 960px) {
+
+
+	}
+
+
+	/* ----- 721px -> 959px ----- */
+	@media all and (min-width: 721px) and (max-width: 959px) {
+		/* Styles in here portrait */
+
+
+
+		/* Leave this nested in here */
+		@media (orientation: landscape) {
+			/* Styles in here LS */
+		}
+	}
+
+
+	/* ----- 501px -> 720px ----- */
+	@media screen and (min-width: 501px) and (max-width: 720px) {
+		/* Styles in here portrait */
+
+		/* Leave this nested in here */
+		@media (orientation: landscape) {
+			/* Styles in here LS */
+		}
+	}
+
+
+	/* ----- 0px -> 500px ----- */
+	@media screen and (max-width: 500px) {
+		/* Smallest screens either P or LS */
+
+	}

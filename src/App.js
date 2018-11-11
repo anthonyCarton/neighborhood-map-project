@@ -6,9 +6,14 @@ import MapDisplay from './MapDisplay';
 import ListView from './ListView';
 
 // TODOs: Phase 5 Provide a filter option
-	// TODO: Identify TODOs
+	// TODO: Add input element for filtering
+	// TODO: Filter elements in list
+	// TODO: Show only filtered elements on map
+	// TODO: Show infoWindow when list item is selected
 
 // TODOs: Phase 6 Ensure responsive design
+
+// TODOs: Phase 7 Error Handling
 
 class App extends Component {
 	// important to keep state at this higher level

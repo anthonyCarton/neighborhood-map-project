@@ -5,9 +5,9 @@ import MapDisplay from './MapDisplay';
 import ListView from './ListView';
 
 // TODOs: Phase 6 Error Handling
-	// TODO: Add LoadingContainer to MapDisplay per
+	// DONE: Add LoadingContainer to MapDisplay per
 		// https://www.npmjs.com/package/google-maps-react#automatically-lazy-loading-google-api
-	// TODO: Create a Loading container
+	// DONE: Create a Loading container
 	// TODO: Populate with an error loading message
 	// Last TODO: switch SW.unregister() to SW.register on index.js
 

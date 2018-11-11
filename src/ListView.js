@@ -20,7 +20,6 @@ class ListView extends React.Component {
 					id="locationFilter"
 					aria-label="Filter locations"
 					onChange={event => this.updateQuery(event.target.value.toLowerCase())}
-					value={this.state.query}
 					></input>
 				<ul>
 						{this.props.locations && this.props.locations.map((location) => {

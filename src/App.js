@@ -8,10 +8,11 @@ import ListView from './ListView';
 	// DONE: Add LoadingContainer to MapDisplay per
 		// https://www.npmjs.com/package/google-maps-react#automatically-lazy-loading-google-api
 	// DONE: Create a Loading container
-	// TODO: Populate with an error loading message
-	// Last TODO: switch SW.unregister() to SW.register on index.js
+	// DONE: Populate with an error loading message
 
 // TODOs: Phase 7 Ensure responsive design
+
+// Last TODO: switch SW.unregister() to SW.register on index.js
 
 
 class App extends Component {

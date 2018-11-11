@@ -12,6 +12,7 @@ import ListView from './ListView';
 	// TODO: Show infoWindow when list item is selected
 
 // TODOs: Phase 6 Ensure responsive design
+	// TODO: Make list view into HamburgerMenu
 
 // TODOs: Phase 7 Error Handling
 

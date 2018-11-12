@@ -58,7 +58,8 @@ class MapDisplay extends Component {
 		this.setState({
 			showInfoWindow: null,
 			activeMarker: null,
-			activeMarkerProps: null
+			activeMarkerProps: null,
+			animation: null // added this to remove animation
 		})
 	}
 
@@ -98,8 +99,9 @@ class MapDisplay extends Component {
 						...props,
 					}
 				}
-
+				marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
 				this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps});
+
 			}
 		)
 		.catch(function(error) {
@@ -142,13 +144,14 @@ class MapDisplay extends Component {
 			let marker = new this.props.google.maps.Marker({
 				position: location.pos,
 				map: this.state.map,
-				animation
+				animation: null
 			});
 			marker.addListener('click', () => {
 				this.onMarkerClick(theseProps, marker, null);
 			});
 			return marker;
 		})
+
 		this.setState({markers, markerProps}); // It was this!
 	}
 

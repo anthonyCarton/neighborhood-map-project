@@ -6,7 +6,7 @@ import ListView from './ListView';
 
 // DONE: Phase 7 Ensure responsive design
 
-// Last TODO: switch SW.unregister() to SW.register on index.js
+// DONE TODO: switch SW.unregister() to SW.register on index.js
 
 
 class App extends Component {

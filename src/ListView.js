@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 
-//https://reactjs.org/docs/lists-and-keys.html#embedding-map-in-jsx
-
 class ListView extends Component {
 	state = {
 		query: ""
-		}
+	}
 
 	updateQuery = (updatedQuery) => {
 		this.setState({ query: updatedQuery });
@@ -27,7 +25,7 @@ class ListView extends Component {
 				<ul className="button-list">
 						{this.props.locations && this.props.locations.map((location, index) => {
 							return (
-								<li key={location.name}> {/* key and infoWindowFromList(arg) were location.name */}
+								<li key={location.name}>
 									<button onClick={event => this.props.infoWindowFromList(index)}>{location.name}</button>
 								</li>
 							)

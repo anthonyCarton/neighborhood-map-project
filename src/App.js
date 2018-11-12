@@ -4,10 +4,6 @@ import locations from './data/locations.json';
 import MapDisplay from './MapDisplay';
 import ListView from './ListView';
 
-// DONE: app should inform the user of the error. Currently the app incorrectly states that the store does not have a liquor license
-// TODO: When Google Maps API fails, app gave no visible indication of failure
-// TODO: Turn SW back on
-
 class App extends Component {
 	state = {
 		// Mancos CO

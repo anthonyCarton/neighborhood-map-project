@@ -1,24 +1,28 @@
 * {
-	font-size: 16px;
 	margin:0;
 	padding:0;
 }
+body {
+	background-color: black;
+	margin: 0;
+	/*position:relative;*/
+}
 .container {
-	display: flex;
-	flex-wrap: wrap;
+	font-size: 16px;
 	position:relative;
 	overflow: hidden;
 	width:100vw;
-	height:100vh;
+	height:auto;
 }
 
 /* -----  Header Styles ----- */
 header {
 	background-color:black;
 	color: white;
-	width:calc(25% - 30px);
-	padding:15px;
 	height:100%;
+	min-width: 330px;
+	padding:15px;
+	width:calc(100% - 30px);
 }
 header h1 {
 	background-color: black;
@@ -39,8 +43,10 @@ header h1 {
 }
 .list-view {
 }
-.list-view input {
+#locationFilter {
+	background-color: whitesmoke;
 	margin-bottom:20px;
+	min-height: 1.5rem;
 	width:100%;
 }
 .list-view ul {
@@ -74,27 +80,105 @@ header h1 {
 #data-credit a {
 	text-decoration: none;
 	font-weight: bold;
-	line-height: 2rem;
 	color: white;
 }
 
-/* -----  Main Styles ----- */
+/* -----  Map Styles ----- */
 main {
-	}
-#map-container div {
+	/*min-width: 100%;*/
+	/*min-height:500px;*/
+	position:inherit;
+}
+#map-container {
+	/*min-height:500px;*/
+}
+#map-container div div {
 }
 
-	/* ====================== breakpoints ====================== */
+#map {
+	background-color: #ccc;
+  height: 400px;
+	height: 50vh;
+  width: 100%;
+}
+
+/* ====================== Flexbox ================================== */
+.container {
+	display: flex;
+	flex-direction: column;
+}
+main section {
+	width:100%;
+}
+header {
+	order: 1;
+}
+main {
+	order: 2;
+}
+
+	/* -----  breakpoints ----- */
+
 	@media all and (min-width: 960px) {
-
-
+		.container {
+			flex-direction: row;
+			height:100vh;
+			width:100vw;
+			position:relative;
+		}
+		header {
+			height:100%;
+			min-width: 200px;
+			width:calc(30% - 30px);
+		}
+		header h1, header button {
+		}
+		.button-list {
+		}
+		#data-credit {
+			height:auto;
+			font-size: .8rem;
+		}
+		main {
+			position: inherit;
+			width:70%
+		}
+		#map-container {
+			width:60%
+		}
 	}
 
 
 	/* ----- 721px -> 959px ----- */
-	@media all and (min-width: 721px) and (max-width: 959px) {
+	@media all and (min-width: 800px) and (max-width: 959px) {
 		/* Styles in here portrait */
-
+		.container {
+			flex-direction: row;
+			height:100vh;
+			width:100vw;
+			position:relative;
+		}
+		header {
+			height:100%;
+			min-width: 200px;
+			width:calc(30% - 30px);
+		}
+		header h1, header button {
+			font-size: 1rem;
+		}
+		.button-list {
+		}
+		#data-credit {
+			height:auto;
+			font-size: .7rem;
+		}
+		main {
+			position: inherit;
+			width:70%
+		}
+		#map-container {
+			width:60%
+		}
 
 
 		/* Leave this nested in here */
@@ -105,12 +189,74 @@ main {
 
 
 	/* ----- 501px -> 720px ----- */
-	@media screen and (min-width: 501px) and (max-width: 720px) {
+	@media screen and (min-width: 501px) and (max-width: 800px) {
 		/* Styles in here portrait */
+		.container {
+			flex-direction: row;
+			height:100vh;
+			width:100vw;
+			position:relative;
+		}
+		header {
+			height:100%;
+			min-width: 200px;
+			width:calc(40% - 30px);
+		}
+		header h1, header button {
+		}
+		.button-list {
+			height: auto;
+		}
+		#data-credit {
+			height:auto;
+			font-size: .8rem;
+			width:35%;
+		}
+		main {
+			position: inherit;
+			width:60%
+		}
+		#map-container {
+			width:60%
+		}
 
 		/* Leave this nested in here */
 		@media (orientation: landscape) {
 			/* Styles in here LS */
+			.container {
+				flex-direction: row;
+				height:100vh;
+				width:100vw;
+				position:relative;
+
+				/*overflow: hidden;*/
+			}
+			header {
+				height:100%;
+				min-width: 200px;
+				padding:10px;
+				width:calc(40% - 20px);
+			}
+			header h1, header button {
+				font-size: 1rem;
+				line-height: 1.5rem;
+			}
+			.button-list {
+				height: 50vh;
+			}
+			#data-credit {
+				position: static;
+				width:100%;
+				height:auto;
+				font-size: .8rem;
+			}
+			main {
+				position: inherit;
+				width:60%
+			}
+			#map-container {
+				width:60%
+			}
 		}
 	}
 
@@ -118,5 +264,25 @@ main {
 	/* ----- 0px -> 500px ----- */
 	@media screen and (max-width: 500px) {
 		/* Smallest screens either P or LS */
-
+		header h1 {
+			max-width:70%;
+		}
+		header .list-view input {
+			margin-bottom:20px;
+			width:100%;
+		}
+		header .button-list {
+			height:auto;
+			max-height:40vh;
+			overflow: auto;
+		}
+		header #data-credit {
+			position: static;
+			width:100%;
+			background-color: black;
+			height:auto;
+		}
+		main {
+			height:90vh;
+		}
 	}

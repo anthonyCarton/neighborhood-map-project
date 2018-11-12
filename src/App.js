@@ -4,7 +4,7 @@ import locations from './data/locations.json';
 import MapDisplay from './MapDisplay';
 import ListView from './ListView';
 
-// TODOs: Phase 7 Ensure responsive design
+// DONE: Phase 7 Ensure responsive design
 
 // Last TODO: switch SW.unregister() to SW.register on index.js
 
@@ -57,7 +57,7 @@ class App extends Component {
 						/>
 					</nav>
 					<section id="data-credit">
-						<p>Liquor license status provided by<br /><a href="https://data.colorado.gov/Business/Liquor-Licenses-in-Colorado/ier5-5ms2">State of Colorado</a> and <a href="https://dev.socrata.com/foundry/data.colorado.gov/6a7f-q6ys">Socrata</a></p>
+						<p>Liquor license status provided by <a href="https://data.colorado.gov/Business/Liquor-Licenses-in-Colorado/ier5-5ms2">State of Colorado</a> and <a href="https://dev.socrata.com/foundry/data.colorado.gov/6a7f-q6ys">Socrata</a></p>
 					</section>
 				</header>
 				<main id="main-content">

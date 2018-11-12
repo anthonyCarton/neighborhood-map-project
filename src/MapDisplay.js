@@ -190,8 +190,7 @@ class MapDisplay extends Component {
 
   render() {
 		const style = {
-			// Prefer VW and VH to %
-		  width: '75%',
+		  width: 'inherit',
 			height: '100%'
 		}
 		const center = {

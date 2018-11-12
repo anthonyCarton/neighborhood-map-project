@@ -16,7 +16,6 @@ class LoadingContainer extends Component {
 			this.setState({show: true});
 	}
 
-
   render() {
     return (
 			<div>

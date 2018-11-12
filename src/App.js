@@ -4,13 +4,7 @@ import locations from './data/locations.json';
 import MapDisplay from './MapDisplay';
 import ListView from './ListView';
 
-// DONE: Phase 7 Ensure responsive design
-
-// DONE TODO: switch SW.unregister() to SW.register on index.js
-
-
 class App extends Component {
-	// important to keep state at this higher level
 	state = {
 		// Mancos CO
 		lat: 37.344996,
@@ -19,7 +13,8 @@ class App extends Component {
 		locations: locations,
 		filtered: null,
 		selectedIndex: null
-		}
+	}
+
 	componentDidMount = () => {
 		this.setState({
 			...this.state,
@@ -30,7 +25,7 @@ class App extends Component {
 	updateQuery = (query) => {
 		this.setState({
 			...this.state,
-			selectedIndex: null, // no key is currently selected
+			selectedIndex: null,
 			filtered: this.filterLocations(this.state.locations, query)
 		});
 	}
@@ -68,7 +63,6 @@ class App extends Component {
 							zoom = {this.state.zoom}
 							locations = {this.state.filtered}
 							selectedIndex = {this.state.selectedIndex}
-
 						/>
 					</section>
 				</main>

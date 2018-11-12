@@ -2,17 +2,18 @@
 	margin:0;
 	padding:0;
 }
+
 body {
 	background-color: black;
 	margin: 0;
-	/*position:relative;*/
 }
+
 .container {
 	font-size: 16px;
-	position:relative;
-	overflow: hidden;
-	width:100vw;
 	height:auto;
+	overflow: hidden;
+	position:relative;
+	width:100vw;
 }
 
 /* -----  Header Styles ----- */
@@ -24,37 +25,39 @@ header {
 	padding:15px;
 	width:calc(100% - 30px);
 }
+
 header h1 {
 	background-color: black;
 	font-size:1.3rem;
-	text-align: left;
-	margin-bottom:20px;
 	height:10vh;
+	margin-bottom:20px;
 	min-height: 50px;
+	text-align: left;
 }
+
 #filter-options {
 	width:100%;
 }
+
 .button-list {
 	display: block;
-	width:100%;
 	height: 70vh;
 	overflow: scroll;
+	width:100%;
 }
-.list-view {
-}
+
 #locationFilter {
 	background-color: whitesmoke;
 	margin-bottom:20px;
 	min-height: 1.5rem;
 	width:100%;
 }
+
 .list-view ul {
 	list-style-type: none;
 	padding:0;
 }
-.list-view li {
-}
+
 .list-view button {
 	background-color: black;
 	border: none;
@@ -65,34 +68,29 @@ header h1 {
 	text-align: left;
 	width:100%;
 }
+
 .list-view button:hover {
 	background-color: darkslategrey;
 }
-#data-credit {
-	position: fixed;
-	bottom:0px;
-	width:calc(25% - 30px);
 
+#data-credit {
 	background-color: black;
+	bottom:0px;
 	height:60px;
 	padding:10px 0;
+	position: fixed;
+	width:calc(25% - 30px);
 }
+
 #data-credit a {
-	text-decoration: none;
-	font-weight: bold;
 	color: white;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 /* -----  Map Styles ----- */
 main {
-	/*min-width: 100%;*/
-	/*min-height:500px;*/
 	position:inherit;
-}
-#map-container {
-	/*min-height:500px;*/
-}
-#map-container div div {
 }
 
 #map {
@@ -107,47 +105,48 @@ main {
 	display: flex;
 	flex-direction: column;
 }
+
 main section {
 	width:100%;
 }
+
 header {
 	order: 1;
 }
+
 main {
 	order: 2;
 }
 
 	/* -----  breakpoints ----- */
-
 	@media all and (min-width: 960px) {
 		.container {
 			flex-direction: row;
 			height:100vh;
-			width:100vw;
 			position:relative;
+			width:100vw;
 		}
+
 		header {
 			height:100%;
 			min-width: 200px;
 			width:calc(30% - 30px);
 		}
-		header h1, header button {
-		}
-		.button-list {
-		}
+
 		#data-credit {
 			height:auto;
 			font-size: .8rem;
 		}
+
 		main {
 			position: inherit;
 			width:70%
 		}
+
 		#map-container {
 			width:60%
 		}
 	}
-
 
 	/* ----- 721px -> 959px ----- */
 	@media all and (min-width: 800px) and (max-width: 959px) {
@@ -155,38 +154,34 @@ main {
 		.container {
 			flex-direction: row;
 			height:100vh;
-			width:100vw;
 			position:relative;
+			width:100vw;
 		}
+
 		header {
 			height:100%;
 			min-width: 200px;
 			width:calc(30% - 30px);
 		}
+
 		header h1, header button {
 			font-size: 1rem;
 		}
-		.button-list {
-		}
+
 		#data-credit {
-			height:auto;
 			font-size: .7rem;
+			height:auto;
 		}
+
 		main {
 			position: inherit;
 			width:70%
 		}
+
 		#map-container {
 			width:60%
 		}
-
-
-		/* Leave this nested in here */
-		@media (orientation: landscape) {
-			/* Styles in here LS */
-		}
 	}
-
 
 	/* ----- 501px -> 720px ----- */
 	@media screen and (min-width: 501px) and (max-width: 800px) {
@@ -194,28 +189,31 @@ main {
 		.container {
 			flex-direction: row;
 			height:100vh;
-			width:100vw;
 			position:relative;
+			width:100vw;
 		}
+
 		header {
 			height:100%;
 			min-width: 200px;
 			width:calc(40% - 30px);
 		}
-		header h1, header button {
-		}
+
 		.button-list {
 			height: auto;
 		}
+
 		#data-credit {
 			height:auto;
 			font-size: .8rem;
 			width:35%;
 		}
+
 		main {
 			position: inherit;
 			width:60%
 		}
+
 		#map-container {
 			width:60%
 		}
@@ -226,40 +224,43 @@ main {
 			.container {
 				flex-direction: row;
 				height:100vh;
-				width:100vw;
 				position:relative;
-
-				/*overflow: hidden;*/
+				width:100vw;
 			}
+
 			header {
 				height:100%;
 				min-width: 200px;
 				padding:10px;
 				width:calc(40% - 20px);
 			}
+
 			header h1, header button {
 				font-size: 1rem;
 				line-height: 1.5rem;
 			}
+
 			.button-list {
 				height: 50vh;
 			}
+
 			#data-credit {
+				font-size: .8rem;
+				height:auto;
 				position: static;
 				width:100%;
-				height:auto;
-				font-size: .8rem;
 			}
+
 			main {
 				position: inherit;
 				width:60%
 			}
+
 			#map-container {
 				width:60%
 			}
 		}
 	}
-
 
 	/* ----- 0px -> 500px ----- */
 	@media screen and (max-width: 500px) {
@@ -267,21 +268,25 @@ main {
 		header h1 {
 			max-width:70%;
 		}
+
 		header .list-view input {
 			margin-bottom:20px;
 			width:100%;
 		}
+
 		header .button-list {
 			height:auto;
 			max-height:40vh;
 			overflow: auto;
 		}
+
 		header #data-credit {
-			position: static;
-			width:100%;
 			background-color: black;
 			height:auto;
+			position: static;
+			width:100%;
 		}
+
 		main {
 			height:90vh;
 		}

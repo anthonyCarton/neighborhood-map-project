@@ -15,7 +15,8 @@ class MapDisplay extends Component {
 		activeMarker: null,
 		activeMarkerProps: null,
 		// Is info window supposed to show
-		showInfoWindow: false
+		showInfoWindow: false,
+		didFetch: false
 	};
 
 	componentWillReceiveProps = (receivedProps) => {
@@ -84,12 +85,12 @@ class MapDisplay extends Component {
 			.then(result => {
 				// get the Business
 				let restaurant = this.getBusinessInfo(props, result);
-
 				// was there a match?
 				if (restaurant) {
 					let exp_date = new Date(restaurant.expiration).toDateString();
 					activeMarkerProps = {
 						...props,
+						// has_lic: true,
 						lic_num: restaurant.license_number,
 						lic_exp: exp_date,
 						lic_type: restaurant.license_type
@@ -97,15 +98,22 @@ class MapDisplay extends Component {
 				} else {
 					activeMarkerProps = {
 						...props,
+						has_lic: false
 					}
 				}
 				marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
 				this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps});
-
+			}
+		)
+		.then(result => {
+				this.setState({
+					didFetch: true
+				});
+			console.log('didFetch is true!');
 			}
 		)
 		.catch(function(error) {
-			console.log('Fetch Error :', error);
+			console.log('Fetch Error (yikes!) :', error);
 		});
 
 			// Set state to marker info window show
@@ -140,7 +148,7 @@ class MapDisplay extends Component {
 			markerProps.push(theseProps);
 
 			// Animation can either BOUNCE or DROP
-			let animation = this.props.google.maps.Animation.DROP;
+			// let animation = this.props.google.maps.Animation.DROP;
 			let marker = new this.props.google.maps.Marker({
 				position: location.pos,
 				map: this.state.map,
@@ -153,18 +161,42 @@ class MapDisplay extends Component {
 		})
 
 		this.setState({markers, markerProps}); // It was this!
-	}
+	};
 
-  render() {
-		const style = {
+render() {
+	let theseProps = this.state.activeMarkerProps;
+	let didFetch = this.state.didFetch;
+
+	// did_fetch === false
+	const FETCH_ERROR =
+		<div>
+			<p>Due to an error connecting to Colorado Dept. of Revenue,
+			<br />not currently able to fetch license status.</p>
+		</div>;
+
+	// didFetch === true && hasLic === true
+	const HAS_LIC =
+		<div>
+			<p>Lic. # {theseProps && theseProps.lic_num}</p>
+			<p>Expiration: {theseProps && theseProps.lic_exp}</p>
+			<p>Type: {theseProps && theseProps.lic_type}</p>
+		</div>;
+
+	// didFetch === true && hasLic === false
+	const NO_LIC =
+		<div>
+			<p>This establishment does not <br />have a liquor license.</p>
+		</div>;
+
+		const STYLE = {
 		  width: 'inherit',
 			height: '100%'
 		}
-		const center = {
+		const CENTER = {
 			lat: this.props.lat,
 			lng: this.props.lng
 		}
-		let theseProps = this.state.activeMarkerProps;
+
     return (
 				<Map
 					role="application"
@@ -172,28 +204,24 @@ class MapDisplay extends Component {
 					onReady={this.mapReady}
 					google={this.props.google}
 					zoom={this.props.zoom}
-					style={style}
-					initialCenter={center}
+					style={STYLE}
+					initialCenter={CENTER}
 					onClick={this.closeInfoWindow}>
+
 					{/* https://www.npmjs.com/package/google-maps-react#events-4 */}
 					<InfoWindow
 						marker={this.state.activeMarker}
 						visible={this.state.showInfoWindow}
 						onClose={this.closeInfoWindow}>
-					  <div>
-							<h3>{theseProps && theseProps.name}</h3>
-							{theseProps && theseProps.lic_num && theseProps.lic_exp
-                ? (
-									<div>
-										<p>Lic. # {theseProps && theseProps.lic_num}</p>
-										<p>Expiration: {theseProps && theseProps.lic_exp}</p>
-										<p>Type: {theseProps && theseProps.lic_type}</p>
-									</div>
-								) : (
-									<p>This establishment does not <br />have a liquor license.</p>
-								)}
-					  </div>
-					</InfoWindow>
+							<div>
+								<h3>{ theseProps && theseProps.name }</h3>
+								{
+									( didFetch === false ) ? ( FETCH_ERROR ) : (
+										( theseProps && theseProps.lic_num && theseProps.lic_exp ) ? ( HAS_LIC ) : ( NO_LIC )
+									)
+								}
+							</div>
+						</InfoWindow>
 				</Map>
 		);
   }

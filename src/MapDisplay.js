@@ -25,12 +25,14 @@ class MapDisplay extends Component {
 			this.updateMarkers(this.props.locations);
 			return;
 		}
+
 		// If selected item not the active marker, close infoWindow
 		if (!receivedProps.selectedIndex
 				|| (this.state.activeMarker
 				&& (this.state.markers[receivedProps.selectedIndex] !== this.state.activeMarker))) {
 					this.closeInfoWindow();
 				}
+
 		// If no selected marker, return
     if (receivedProps.selectedIndex === null || typeof(receivedProps.selectedIndex) === "undefined") {
         return;
@@ -61,16 +63,11 @@ class MapDisplay extends Component {
 	}
 
 	getBusinessInfo = (props, data) => {
-		console.log(`getBusInfo props:`);
-		console.log(props);
 		// Match the info to restaurant by filtering by address
 		let matchList =  data.filter(item => item.street_address.toLowerCase().includes(props.street.toLowerCase()) || props.street.toLowerCase().includes(item.street_address.toLowerCase()));
 
 		if (!matchList[0]) {
-			console.log('no match');
-			// return matchList[0]; (May not be necessary unless 2nd then needs an item)
 		} else {
-			console.log('restaurant match is: ' + matchList[0].doing_business_as);
 			return matchList[0];
 		}
 	}
@@ -79,39 +76,17 @@ class MapDisplay extends Component {
 		this.closeInfoWindow();
 
 		// Call for CO Liquor License Info
-		// Fetch the info from CO
-		// https://developers.google.com/web/updates/2015/03/introduction-to-fetch
-		// https://data.colorado.gov/Business/Liquor-Licenses-in-Colorado/ier5-5ms2
-		// https://dev.socrata.com/foundry/data.colorado.gov/6a7f-q6ys
-		// Create props for the active marker
 		let activeMarkerProps;
 
 		fetch(`https://data.colorado.gov/resource/6a7f-q6ys.json?city=Mancos&%24%24app_token=${CO_SOCRATA_TOKEN}`)
 			.then(fetchResponse => fetchResponse.json())
 			.then(result => {
-
-				// get this Business
+				// get the Business
 				let restaurant = this.getBusinessInfo(props, result);
-				// (moved this into if (restaurant) so that it only runs if there was a match)
-				// let exp_date = new Date(restaurant[0].expiration).toDateString();
 
-				// was there a match? Array Version
-				/*if (restaurant[0]) {
-					activeMarkerProps = {
-						...props,
-						lic_num: restaurant[0].license_number,
-						lic_exp: exp_date,
-						lic_type: restaurant[0].license_type
-					}
-				} else {
-					activeMarkerProps = {
-						...props,
-					}
-				}*/
-				// was there a match? bestMatch Version
+				// was there a match?
 				if (restaurant) {
 					let exp_date = new Date(restaurant.expiration).toDateString();
-
 					activeMarkerProps = {
 						...props,
 						lic_num: restaurant.license_number,
@@ -125,14 +100,6 @@ class MapDisplay extends Component {
 				}
 
 				this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps});
-				//console.log(activeMarkerProps);
-
-				/*if (activeMarkerProps.lic_num &&
-						activeMarkerProps.lic_exp &&
-						activeMarkerProps.lic_type ) {
-				} else {
-					console.log('no liquor license');
-				}*/
 			}
 		)
 		.catch(function(error) {
@@ -171,9 +138,7 @@ class MapDisplay extends Component {
 			markerProps.push(theseProps);
 
 			// Animation can either BOUNCE or DROP
-			// https://developers.google.com/maps/documentation/javascript/reference/marker#Animation
 			let animation = this.props.google.maps.Animation.DROP;
-
 			let marker = new this.props.google.maps.Marker({
 				position: location.pos,
 				map: this.state.map,
@@ -184,7 +149,6 @@ class MapDisplay extends Component {
 			});
 			return marker;
 		})
-		console.log(markers);
 		this.setState({markers, markerProps}); // It was this!
 	}
 
@@ -231,9 +195,6 @@ class MapDisplay extends Component {
 		);
   }
 }
-
-// Automatically Lazy-loading Google API
-// export default GoogleApiWrapper({ apiKey: API_KEY })(MapDisplay)
 
 // Automatically Lazy-loading Google API with custom loading container
 export default GoogleApiWrapper({
